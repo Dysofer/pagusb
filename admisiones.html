@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admisiones, Becas y Financiamiento | USB Cali</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <div class="top-bar-container">
+      <ul class="top-bar-group">
+        <li><strong style="color: #FFF;">Portales:</strong></li>
+        <li><a href="https://usbcali.edu.co/programas/?Sfacultad=all&Stipo_programa=pregrado&search=" target="_blank">Aspirantes</a></li>
+        <li><a href="https://usbcali.edu.co/estudiantes/" target="_blank">Estudiantes</a></li>
+        <li><a href="https://usbcali.edu.co/egresados/" target="_blank">Egresados</a></li>
+      </ul>
+
+      <ul class="top-bar-group">
+        <li><a href="https://campus.usbco.edu.co/psp/USCS90PR/?cmd=login&languageCd=ESP&" target="_blank" class="top-bar-badge">ASIS (Autoservicio)</a></li>
+        <li><a href="https://aulasvirtuales.usbcali.edu.co/" target="_blank">Campus Virtual</a></li>
+        
+        <li class="top-bar-dropdown">
+          <button type="button" class="top-bar-dropdown-btn" aria-haspopup="true">
+            Correo Institucional ▾
+          </button>
+          <ul class="top-bar-dropdown-menu">
+            <li><a href="https://login.microsoftonline.com/" target="_blank">Correo Administrativo</a></li>
+            <li><a href="https://mail.google.com/a/correo.usbcali.edu.co" target="_blank">Correo Estudiantes</a></li>
+          </ul>
+        </li>
+
+        <li><a href="https://usbcali.edu.co/biblioteca/" target="_blank">Biblioteca</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-container">
+      <a href="index.html"><img src="assets/img/logo-nav-dark.png" alt="USB Cali" class="logo-img"></a>
+      <nav>
+        <ul>
+          <li class="nav-dropdown">
+            <a href="becas.html" class="nav-dropdown-btn">Apoyo Financiero ▾</a>
+            <ul class="nav-dropdown-menu">
+              <li><a href="becas.html">Becas</a></li>
+              <li><a href="convenios.html">Convenios</a></li>
+              <li><a href="financiacion.html">Opciones de Financiación</a></li>
+            </ul>
+          </li>
+          <li><a href="index.html#impacto">Impacto Real</a></li>
+          <li><a href="facultades.html">Facultades</a></li>
+          <li><a href="vida-universitaria.html">Vida Universitaria</a></li>
+          <li><a href="admisiones.html">Admisiones</a></li>
+        </ul>
+      </nav>
+      <a href="admisiones.html" class="btn-primary">Inscríbete Hoy</a>
+    </div>
+  </header>
+
+  <!-- HERO ADMISIONES -->
+  <section class="hero-main" style="background: linear-gradient(135deg, #1D1D1B 0%, #111110 100%); padding: 72px 32px;">
+    <div class="hero-container">
+      <h1>Tu Experiencia Bonaventuriana Empieza Aquí</h1>
+      <p>Procesos de admisión 100% digitales, becas automáticas por mérito ICFES / Saber 11 y asesoría personalizada de financiamiento.</p>
+    </div>
+  </section>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="main-layout" style="margin-top: 48px;">
+    <section class="content-column">
+      
+      <!-- SIMULADOR DE BECAS -->
+      <div style="background: #FFFFFF; border-radius: 16px; padding: 32px; border: 2px solid #E2E8F0; box-shadow: 0 8px 30px rgba(0,0,0,0.04); margin-bottom: 48px;">
+        <h2 style="color: var(--color-primary-black); font-size: 1.6rem; font-weight: 800; margin-bottom: 8px; margin-top: 0;">Simulador de Beca ICFES / Saber 11</h2>
+        <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 24px;">Ingresa tu puntaje global para estimar automáticamente tu porcentaje de descuento en la matrícula inicial:</p>
+
+        <div style="margin-bottom: 20px;">
+          <label style="display: block; font-weight: 700; font-size: 0.9rem; margin-bottom: 8px; color: var(--color-text-dark);">Puntaje Global ICFES (0 - 500):</label>
+          <input type="number" id="icfes-score" placeholder="Ej. 340" min="0" max="500" oninput="calculateScholarship()" style="width: 100%; padding: 12px 16px; border: 1px solid #CBD5E1; border-radius: 8px; font-size: 1rem; font-family: inherit;">
+        </div>
+
+        <div style="margin-bottom: 20px;">
+          <label style="display: block; font-weight: 700; font-size: 0.9rem; margin-bottom: 8px; color: var(--color-text-dark);">Programa de Interés:</label>
+          <select id="faculty-select" style="width: 100%; padding: 12px 16px; border: 1px solid #CBD5E1; border-radius: 8px; font-size: 1rem; font-family: inherit;">
+            <option value="multimedia">Ingeniería Multimedia</option>
+            <option value="derecho">Derecho</option>
+            <option value="psicologia">Psicología</option>
+            <option value="mercadeo">Mercadeo y Negocios Internacionales</option>
+          </select>
+        </div>
+
+        <div style="background: #FAFAFA; border-radius: 12px; padding: 20px; text-align: center; margin-top: 24px; border-left: 6px solid var(--color-accent-orange);">
+          <label style="font-size: 0.85rem; text-transform: uppercase; font-weight: 800; color: var(--color-text-muted);">Estimación de Beca Otorgada:</label>
+          <div id="scholarship-result" style="font-size: 2.2rem; font-weight: 800; color: var(--color-accent-orange); margin: 4px 0;">0%</div>
+          <p id="scholarship-desc" style="font-size: 0.88rem; color: var(--color-text-muted);">Ingresa un puntaje igual o superior a 290 puntos para calcular tus beneficios.</p>
+        </div>
+      </div>
+
+      <!-- PASO A PASO -->
+      <div style="margin-bottom: 48px;">
+        <h2 style="color: var(--color-primary-black); font-size: 1.6rem; font-weight: 800; margin-bottom: 24px;">Paso a Paso de tu Proceso de Admisión</h2>
+        
+        <div style="display: flex; gap: 20px; margin-bottom: 20px; background: #FFFFFF; padding: 20px; border-radius: 12px; border: 1px solid #E2E8F0;">
+          <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--color-accent-orange); color: #FFF; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.1rem;">1</div>
+          <div>
+            <h4 style="font-size: 1.1rem; color: var(--color-primary-black); font-weight: 800;">Inscripción Digital</h4>
+            <p style="font-size: 0.92rem; color: var(--color-text-muted);">Diligencia el formulario en línea sin costos de inscripción durante jornadas especiales.</p>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 20px; margin-bottom: 20px; background: #FFFFFF; padding: 20px; border-radius: 12px; border: 1px solid #E2E8F0;">
+          <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--color-accent-orange); color: #FFF; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.1rem;">2</div>
+          <div>
+            <h4 style="font-size: 1.1rem; color: var(--color-primary-black); font-weight: 800;">Carga de Documentos</h4>
+            <p style="font-size: 0.92rem; color: var(--color-text-muted);">Adjunta tu documento de identidad, certificado de pruebas ICFES/Saber 11 y acta de grado.</p>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 20px; margin-bottom: 20px; background: #FFFFFF; padding: 20px; border-radius: 12px; border: 1px solid #E2E8F0;">
+          <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--color-accent-orange); color: #FFF; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.1rem;">3</div>
+          <div>
+            <h4 style="font-size: 1.1rem; color: var(--color-primary-black); font-weight: 800;">Diálogo Vocacional</h4>
+            <p style="font-size: 0.92rem; color: var(--color-text-muted);">Entrevista amigable con el director de programa para conocer tus metas y orientarte.</p>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 20px; margin-bottom: 20px; background: #FFFFFF; padding: 20px; border-radius: 12px; border: 1px solid #E2E8F0;">
+          <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--color-accent-orange); color: #FFF; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.1rem;">4</div>
+          <div>
+            <h4 style="font-size: 1.1rem; color: var(--color-primary-black); font-weight: 800;">Matrícula y Bienvenida Bonaventuriana</h4>
+            <p style="font-size: 0.92rem; color: var(--color-text-muted);">Recibe tu orden de liquidación con la beca aplicada e intégrate a la inducción en Pance.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- REQUISITOS SEGÚN ASPIRANTE -->
+      <div class="curriculum-section" style="margin-bottom: 48px;">
+        <h2 style="color: var(--color-primary-black); font-size: 1.6rem; font-weight: 800; margin-bottom: 16px;">Requisitos de Admisibilidad</h2>
+        <div class="semester-tabs">
+          <button class="semester-btn active" onclick="showRequirements('bachiller', this)">Aspirante Bachiller</button>
+          <button class="semester-btn" onclick="showRequirements('transferencia', this)">Transferencia Externa</button>
+          <button class="semester-btn" onclick="showRequirements('extranjero', this)">Aspirante Extranjero</button>
+        </div>
+
+        <div id="req-container" style="background: #FFFFFF; padding: 24px; border-radius: 12px; border: 1px solid #E2E8F0;">
+          <!-- Se renderiza por JavaScript -->
+        </div>
+      </div>
+
+    </section>
+
+    <!-- FORMULARIO LATERAL -->
+    <aside id="solicitud">
+      <div style="background: #FFFFFF; border-radius: 16px; padding: 32px; border: 1px solid #E2E8F0; box-shadow: 0 8px 30px rgba(0,0,0,0.05); position: sticky; top: 90px; border-top: 5px solid var(--color-accent-orange);">
+        <h3 style="color: var(--color-primary-black); font-size: 1.4rem; font-weight: 800; margin-bottom: 12px;">Solicita Acompañamiento</h3>
+        <p style="font-size: 0.88rem; color: var(--color-text-muted); margin-bottom: 20px;">Un asesor de admisiones te orientará vía WhatsApp con tu proceso.</p>
+
+        <form onsubmit="alert('¡Solicitud enviada con éxito! Un asesor de la USB Cali te contactará en breve.'); return false;">
+          <div style="margin-bottom: 16px;">
+            <label style="display: block; font-weight: 700; font-size: 0.9rem; margin-bottom: 6px;">Nombre Completo:</label>
+            <input type="text" required placeholder="Ej. Juan Pérez" style="width: 100%; padding: 10px 14px; border: 1px solid #CBD5E1; border-radius: 8px; font-size: 0.95rem; font-family: inherit;">
+          </div>
+
+          <div style="margin-bottom: 16px;">
+            <label style="display: block; font-weight: 700; font-size: 0.9rem; margin-bottom: 6px;">Correo Electrónico:</label>
+            <input type="email" required placeholder="correo@ejemplo.com" style="width: 100%; padding: 10px 14px; border: 1px solid #CBD5E1; border-radius: 8px; font-size: 0.95rem; font-family: inherit;">
+          </div>
+
+          <div style="margin-bottom: 16px;">
+            <label style="display: block; font-weight: 700; font-size: 0.9rem; margin-bottom: 6px;">Teléfono / WhatsApp:</label>
+            <input type="tel" required placeholder="300 000 0000" style="width: 100%; padding: 10px 14px; border: 1px solid #CBD5E1; border-radius: 8px; font-size: 0.95rem; font-family: inherit;">
+          </div>
+
+          <button type="submit" class="btn-primary" style="width: 100%; font-size: 1rem; margin-top: 10px;">Solicitar Información →</button>
+        </form>
+      </div>
+    </aside>
+  </main>
+
+  <!-- WIDGET PACHITO -->
+  <div class="pachito-widget" onclick="window.location.href='admisiones.html'">
+    <div class="pachito-bubble">¿Dudas con tu beca? ¡Te ayudo!</div>
+    <div class="pachito-avatar-box"></div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h4>USB Cali</h4>
+        <p>Cra. 122 #6-65, Barrio Pance, Cali, Valle del Cauca.</p>
+        <p>Acreditación Institucional de Alta Calidad.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Portales y Servicios</h4>
+        <a href="https://campus.usbco.edu.co/psp/USCS90PR/?cmd=login&languageCd=ESP&">Portal ASIS</a>
+        <a href="https://aulasvirtuales.usbcali.edu.co/">Campus Virtual</a>
+        <a href="https://usbcali.edu.co/biblioteca/">Biblioteca Digital</a>
+      </div>
+      <div class="footer-col">
+        <h4>Admisiones</h4>
+        <a href="admisiones.html">Simulador de Becas ICFES</a>
+        <a href="admisiones.html">Inscripciones Abiertas</a>
+        <a href="vida-universitaria.html">Visitas Guiadas</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <p>PBX: +57 (602) 488 2222</p>
+        <p>Línea Gratuita Nacional: 01 8000 124 350</p>
+      </div>
+    </div>
+    <div class="copyright">© 2026 Universidad de San Buenaventura Cali. Todos los derechos reservados.</div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    const requirementsData = {
+      bachiller: [
+        "Fotocopia del Documento de Identidad (Cédula o Tarjeta de Identidad).",
+        "Resultado de las Pruebas ICFES / Saber 11.",
+        "Fotocopia del Acta de Grado o Diploma de Bachiller.",
+        "Certificado de EPS o Seguro Médico activo."
+      ],
+      transferencia: [
+        "Fotocopia del Documento de Identidad ampliado al 150%.",
+        "Certificado oficial de calificaciones de la universidad de origen.",
+        "Contenidos programáticos de las asignaturas a homologar.",
+        "Certificado de buena conducta expedido por la institución de origen."
+      ],
+      extranjero: [
+        "Copia del Pasaporte vigente y Visa de Estudiante.",
+        "Título de bachiller convalidado por el Ministerio de Educación Nacional de Colombia.",
+        "Examen de Estado equivalente al ICFES o prueba Saber 11 homologada.",
+        "Certificado de cobertura de Seguro Médico Internacional."
+      ]
+    };
+
+    function showRequirements(type, btnElement) {
+      const container = document.getElementById('req-container');
+      const buttons = document.querySelectorAll('.semester-btn');
+      
+      buttons.forEach(btn => btn.classList.remove('active'));
+      if (btnElement) btnElement.classList.add('active');
+
+      const items = requirementsData[type] || [];
+      container.innerHTML = `<ul style="list-style-type: disc; padding-left: 20px; font-size: 0.95rem; color: var(--color-text-dark);">
+        ${items.map(req => `<li style="margin-bottom: 10px;">${req}</li>`).join('')}
+      </ul>`;
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const firstBtn = document.querySelector('.semester-btn');
+      showRequirements('bachiller', firstBtn);
+    });
+  </script>
+</body>
+</html>

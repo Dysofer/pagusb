@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ingeniería Multimedia | USB Cali</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <div class="top-bar-container">
+      <ul class="top-bar-group">
+        <li><strong style="color: #FFF;">Portales:</strong></li>
+        <li><a href="https://usbcali.edu.co/programas/?Sfacultad=all&Stipo_programa=pregrado&search=" target="_blank">Aspirantes</a></li>
+        <li><a href="https://usbcali.edu.co/estudiantes/" target="_blank">Estudiantes</a></li>
+        <li><a href="https://usbcali.edu.co/egresados/" target="_blank">Egresados</a></li>
+      </ul>
+
+      <ul class="top-bar-group">
+        <li><a href="https://campus.usbco.edu.co/psp/USCS90PR/?cmd=login&languageCd=ESP&" target="_blank" class="top-bar-badge">ASIS (Autoservicio)</a></li>
+        <li><a href="https://aulasvirtuales.usbcali.edu.co/" target="_blank">Campus Virtual</a></li>
+        
+        <li class="top-bar-dropdown">
+          <button type="button" class="top-bar-dropdown-btn" aria-haspopup="true">
+            Correo Institucional ▾
+          </button>
+          <ul class="top-bar-dropdown-menu">
+            <li><a href="https://login.microsoftonline.com/" target="_blank">Correo Administrativo</a></li>
+            <li><a href="https://mail.google.com/a/correo.usbcali.edu.co" target="_blank">Correo Estudiantes</a></li>
+          </ul>
+        </li>
+
+        <li><a href="https://usbcali.edu.co/biblioteca/" target="_blank">Biblioteca</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-container">
+      <a href="index.html"><img src="assets/img/logo-nav-dark.png" alt="USB Cali" class="logo-img"></a>
+      <nav>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="index.html#impacto">Impacto Real</a></li>
+          <li><a href="facultades.html" class="active">Facultades</a></li>
+          <li><a href="vida-universitaria.html">Vida Universitaria</a></li>
+          <li><a href="admisiones.html">Admisiones</a></li>
+        </ul>
+      </nav>
+      <a href="admisiones.html" class="btn-primary">Inscríbete Hoy</a>
+    </div>
+  </header>
+
+  <!-- HERO PROGRAMA (5 TARJETAS CON SNIES AL LADO DE ACREDITACIÓN) -->
+  <section class="program-hero-landing hero-multimedia">
+    <div class="hero-container" style="max-width: var(--max-width-desktop);">
+      <a href="facultad.html?id=ingenieria" class="back-link">← Volver a Facultad de Ingeniería</a>
+      <h1>Ingeniería Multimedia</h1>
+      <p class="subtitle">Desarrollo de videojuegos, realidad virtual y aumentada (VR/AR), animación 3D, diseño UI/UX e inteligencia artificial con acreditación internacional ABET.</p>
+
+      <div class="meta-grid-5">
+        <div class="meta-box"><label>Duración</label><span>8 Semestres</span></div>
+        <div class="meta-box"><label>Modalidad</label><span>Presencial / Diurna</span></div>
+        <div class="meta-box"><label>Facultad</label><span>Ingeniería</span></div>
+        <div class="meta-box"><label>Acreditación</label><span>Internacional ABET</span></div>
+        <div class="meta-box"><label>Código SNIES</label><span>53414</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <div class="main-layout">
+    <div class="content-column">
+      <h2>Empleabilidad y Proyección Profesional</h2>
+      <div class="metrics-card-grid">
+        <div class="metric-card">
+          <div class="metric-value" style="color: var(--faculty-multimedia);">94%</div>
+          <div class="metric-title">Tasa de Empleabilidad</div>
+          <div class="metric-sub">Estudios digitales, tech & videojuegos</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value" style="color: var(--faculty-multimedia);">$4.3M</div>
+          <div class="metric-title">Salario Promedio Inicial</div>
+          <div class="metric-sub">Empresas nacionales e internacionales</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value" style="color: var(--faculty-multimedia);">2.2 Meses</div>
+          <div class="metric-title">Tiempo de Vinculación</div>
+          <div class="metric-sub">Promedio de inserción laboral</div>
+        </div>
+      </div>
+
+      <h2>Plan de Estudios Destacado</h2>
+      <p style="color: var(--color-text-muted); margin-bottom: 16px;">Selecciona cada semestre para explorar las asignaturas clave:</p>
+      <div class="curriculum-section">
+        <div class="semester-tabs" id="mm-tabs"></div>
+        <div class="subjects-grid" id="mm-subjects"></div>
+      </div>
+
+      <h2>Laboratorios y Escenarios de Formación</h2>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <h4>Estudio de Motion Capture y 3D</h4>
+          <p>Captura de movimiento óptico, modelado 3D, animación digital y motores gráficos Unreal y Unity.</p>
+        </div>
+        <div class="feature-card">
+          <h4>Laboratorio VR / AR y Gaming</h4>
+          <p>Desarrollo de experiencias inmersivas de realidad virtual, aumentada y videojuegos multiplataforma.</p>
+        </div>
+        <div class="feature-card">
+          <h4>Estudio de Producción Audiovisual</h4>
+          <p>Postproducción de audio en Pro Tools, etalonaje de video y diseño sonoro interactivo.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SIDEBAR PROCESO DE ADMISIÓN (SIN SNIES) -->
+    <aside>
+      <div class="sidebar-card" style="border-top-color: var(--faculty-multimedia);">
+        <h3>Proceso de Admisión</h3>
+        <p style="font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: 18px;">Únete a la Facultad de Ingeniería de la Universidad de San Buenaventura Cali.</p>
+        <a href="admisiones.html" class="btn-primary" style="width: 100%; text-align: center; background-color: var(--faculty-multimedia); margin-bottom: 18px;">Iniciar Proceso de Admisión →</a>
+
+        <div style="border-top: 1px solid #F1F5F9; padding-top: 14px; font-size: 0.85rem; display: flex; flex-direction: column; gap: 10px;">
+          <div style="display: flex; justify-content: space-between;">
+            <span style="color: var(--color-text-muted);">Créditos Totales:</span>
+            <strong>145 Créditos</strong>
+          </div>
+          <div style="display: flex; justify-content: space-between;">
+            <span style="color: var(--color-text-muted);">Ubicación:</span>
+            <strong>Campus La Umbría (Pance)</strong>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- PACHITO WIDGET -->
+  <div class="pachito-widget" onclick="window.location.href='admisiones.html'">
+    <div class="pachito-bubble">¿Te interesa Ingeniería Multimedia? ¡Te asesoro!</div>
+    <div class="pachito-avatar-box"></div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h4>USB Cali</h4>
+        <p>Cra. 122 #6-65, Barrio Pance, Cali, Valle del Cauca.</p>
+        <p>Acreditación Institucional de Alta Calidad.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Portales y Servicios</h4>
+        <a href="https://campus.usbco.edu.co/psp/USCS90PR/?cmd=login&languageCd=ESP&">Portal ASIS</a>
+        <a href="https://aulasvirtuales.usbcali.edu.co/">Campus Virtual</a>
+        <a href="https://usbcali.edu.co/biblioteca/">Biblioteca Digital</a>
+      </div>
+      <div class="footer-col">
+        <h4>Admisiones</h4>
+        <a href="admisiones.html">Simulador de Becas ICFES</a>
+        <a href="admisiones.html">Inscripciones Abiertas</a>
+        <a href="vida-universitaria.html">Visitas Guiadas</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <p>PBX: +57 (602) 488 2222</p>
+        <p>Línea Gratuita Nacional: 01 8000 124 350</p>
+      </div>
+    </div>
+    <div class="copyright">© 2026 Universidad de San Buenaventura Cali. Todos los derechos reservados.</div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    const mmCurriculum = [
+      { label: "Semestre 1", subjects: [{ name: "Algoritmos y Programación I", area: "Software" }, { name: "Cálculo Diferencial", area: "Ciencias Básicas" }, { name: "Fundamentos de Diseño Visual", area: "Diseño" }, { name: "Introducción a la Ingeniería Multimedia", area: "Fundamentos" }] },
+      { label: "Semestre 2", subjects: [{ name: "Programación Orientada a Objetos", area: "Software" }, { name: "Cálculo Integral y Álgebra Lineal", area: "Ciencias Básicas" }, { name: "Dibujo y Narrativa Visual", area: "Creación" }, { name: "Fotografía y Lenguaje Audiovisual", area: "Audiovisual" }] },
+      { label: "Semestre 3", subjects: [{ name: "Estructuras de Datos", area: "Software" }, { name: "Modelado 3D y Texturizado", area: "3D" }, { name: "Física para Simulación y Juegos", area: "Ciencias Básicas" }, { name: "Producción Sonora Digital", area: "Audio" }] },
+      { label: "Semestre 4", subjects: [{ name: "Desarrollo Web Frontend y UI/UX", area: "Web / UX" }, { name: "Animación 3D y Rigging", area: "3D" }, { name: "Bases de Datos Multimedia", area: "Datos" }, { name: "Producción y Edición de Video", area: "Audiovisual" }] },
+      { label: "Semestre 5", subjects: [{ name: "Desarrollo de Videojuegos I", area: "Gaming" }, { name: "Sistemas Embebidos e Interacción Física", area: "Hardware" }, { name: "Ingeniería de Software Multimedia", area: "Ingeniería" }, { name: "Diseño de Interfaces Interactivas", area: "UI/UX" }] },
+      { label: "Semestre 6", subjects: [{ name: "Realidad Virtual y Aumentada (VR/AR)", area: "Inmersivo" }, { name: "Desarrollo Web Full Stack", area: "Software" }, { name: "Inteligencia Artificial Aplicada", area: "IA" }, { name: "Seminario de Investigación", area: "Investigación" }] },
+      { label: "Semestre 7", subjects: [{ name: "Desarrollo de Videojuegos II", area: "Gaming" }, { name: "Computación Gráfica y Shaders", area: "Gráficos" }, { name: "Anteproyecto de Grado", area: "Investigación" }, { name: "Electiva Profesional I", area: "Énfasis" }] },
+      { label: "Semestre 8", subjects: [{ name: "Práctica Profesional Multimedia", area: "Práctica" }, { name: "Proyecto de Grado", area: "Grado" }, { name: "Gestión de Proyectos Digitales", area: "Gestión" }, { name: "Electiva Profesional II", area: "Énfasis" }] }
+    ];
+
+    function renderMM(idx) {
+      document.querySelectorAll('#mm-tabs .semester-btn').forEach((b, i) => {
+        b.classList.toggle('active', i === idx);
+        b.style.background = i === idx ? 'var(--faculty-multimedia)' : '#FFF';
+        b.style.borderColor = i === idx ? 'var(--faculty-multimedia)' : 'var(--color-gray-light)';
+        b.style.color = i === idx ? '#FFF' : 'var(--color-text-dark)';
+      });
+      document.getElementById('mm-subjects').innerHTML = mmCurriculum[idx].subjects.map(s => `
+        <div class="subject-card">
+          <span>${s.name}</span>
+          <span class="subject-tag" style="background: #F3E8FF; color: var(--faculty-multimedia);">${s.area}</span>
+        </div>
+      `).join('');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('mm-tabs').innerHTML = mmCurriculum.map((s, i) => `<button type="button" class="semester-btn" onclick="renderMM(${i})">${s.label}</button>`).join('');
+      renderMM(0);
+    });
+  </script>
+</body>
+</html>

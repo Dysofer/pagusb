@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Facultad | USB Cali</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <div class="top-bar-container">
+      <ul class="top-bar-group">
+        <li><strong style="color: #FFF;">Portales:</strong></li>
+        <li><a href="https://usbcali.edu.co/programas/?Sfacultad=all&Stipo_programa=pregrado&search=" target="_blank">Aspirantes</a></li>
+        <li><a href="https://usbcali.edu.co/estudiantes/" target="_blank">Estudiantes</a></li>
+        <li><a href="https://usbcali.edu.co/egresados/" target="_blank">Egresados</a></li>
+      </ul>
+
+      <ul class="top-bar-group">
+        <li><a href="https://campus.usbco.edu.co/psp/USCS90PR/?cmd=login&languageCd=ESP&" target="_blank" class="top-bar-badge">ASIS (Autoservicio)</a></li>
+        <li><a href="https://aulasvirtuales.usbcali.edu.co/" target="_blank">Campus Virtual</a></li>
+        
+        <li class="top-bar-dropdown">
+          <button type="button" class="top-bar-dropdown-btn" aria-haspopup="true">
+            Correo Institucional ▾
+          </button>
+          <ul class="top-bar-dropdown-menu">
+            <li><a href="https://login.microsoftonline.com/" target="_blank">Correo Administrativo</a></li>
+            <li><a href="https://mail.google.com/a/correo.usbcali.edu.co" target="_blank">Correo Estudiantes</a></li>
+          </ul>
+        </li>
+
+        <li><a href="https://usbcali.edu.co/biblioteca/" target="_blank">Biblioteca</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-container">
+      <a href="index.html"><img src="assets/img/logo-nav-dark.png" alt="USB Cali" class="logo-img"></a>
+      <nav>
+        <ul>
+          <li class="nav-dropdown">
+            <a href="becas.html" class="nav-dropdown-btn">Apoyo Financiero ▾</a>
+            <ul class="nav-dropdown-menu">
+              <li><a href="becas.html">Becas</a></li>
+              <li><a href="convenios.html">Convenios</a></li>
+              <li><a href="financiacion.html">Opciones de Financiación</a></li>
+            </ul>
+          </li>
+          <li><a href="index.html#impacto">Impacto Real</a></li>
+          <li><a href="facultades.html">Facultades</a></li>
+          <li><a href="vida-universitaria.html">Vida Universitaria</a></li>
+          <li><a href="admisiones.html">Admisiones</a></li>
+        </ul>
+      </nav>
+      <a href="admisiones.html" class="btn-primary">Inscríbete Hoy</a>
+    </div>
+  </header>
+
+  <!-- HERO DINÁMICO DE FACULTAD -->
+  <section id="faculty-hero" class="program-hero-landing" style="background: var(--color-primary-black);">
+    <div class="hero-container">
+      <a href="facultades.html" class="back-link">← Volver a todas las facultades</a>
+      <h1 id="fac-title">Cargando Facultad...</h1>
+      <p id="fac-subtitle" class="subtitle"></p>
+
+      <div class="meta-grid" id="fac-meta-grid"></div>
+    </div>
+  </section>
+
+  <!-- CONTENIDO DE PROGRAMAS (PREGRADO / POSGRADO) -->
+  <main class="programs-section">
+    <!-- Selector rápido entre facultades -->
+    <div class="faculty-switcher-bar" id="faculty-switcher"></div>
+
+    <!-- Pestañas Pregrado / Posgrado -->
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; margin-bottom: 28px;">
+      <div class="semester-tabs" style="margin-bottom: 0;">
+        <button type="button" id="tab-pregrado" class="semester-btn active" onclick="switchFacultyLevel('pregrado')">Programas de Pregrado</button>
+        <button type="button" id="tab-posgrado" class="semester-btn" onclick="switchFacultyLevel('posgrado')">Programas de Posgrado</button>
+      </div>
+      <span id="level-counter" style="font-size: 0.9rem; font-weight: 700; color: var(--color-text-muted);"></span>
+    </div>
+
+    <div class="programs-grid" id="faculty-programs-grid"></div>
+  </main>
+
+  <!-- PACHITO WIDGET -->
+  <div class="pachito-widget" onclick="window.location.href='admisiones.html'">
+    <div class="pachito-bubble">¿Dudas sobre esta facultad? ¡Te ayudo!</div>
+    <div class="pachito-avatar-box"></div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h4>USB Cali</h4>
+        <p>Cra. 122 #6-65, Barrio Pance, Cali, Valle del Cauca.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Portales y Servicios</h4>
+        <a href="https://campus.usbco.edu.co/psp/USCS90PR/?cmd=login&languageCd=ESP&">Portal ASIS</a>
+        <a href="https://aulasvirtuales.usbcali.edu.co/">Campus Virtual</a>
+      </div>
+      <div class="footer-col">
+        <h4>Admisiones</h4>
+        <a href="admisiones.html">Simulador de Becas ICFES</a>
+        <a href="admisiones.html">Inscripciones Abiertas</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <p>PBX: +57 (602) 488 2222</p>
+      </div>
+    </div>
+    <div class="copyright">© 2026 Universidad de San Buenaventura Cali. Todos los derechos reservados.</div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/faculties-data.js"></script>
+  <script>
+    let selectedFaculty = null;
+    let selectedLevel = 'pregrado';
+
+    function switchFacultyLevel(level) {
+      selectedLevel = level;
+      document.getElementById('tab-pregrado').classList.toggle('active', level === 'pregrado');
+      document.getElementById('tab-posgrado').classList.toggle('active', level === 'posgrado');
+      renderFacultyPrograms();
+    }
+
+    function renderFacultyPrograms() {
+      if (!selectedFaculty) return;
+      const grid = document.getElementById('faculty-programs-grid');
+      const counter = document.getElementById('level-counter');
+      const list = selectedFaculty[selectedLevel] || [];
+
+      counter.textContent = `Mostrando ${list.length} programa(s) de ${selectedLevel}`;
+
+      grid.innerHTML = list.map(prog => `
+        <div class="program-card" style="border-top: 4px solid ${selectedFaculty.color};">
+          <div>
+            <span class="card-faculty-tag" style="background: ${selectedFaculty.color}18; color: ${selectedFaculty.color};">
+              ${selectedLevel === 'pregrado' ? 'Pregrado Profesional' : prog.degree}
+            </span>
+            <h3>${prog.name}</h3>
+            <p>${prog.summary}</p>
+            
+            <!-- Tarjetas SNIES y Acreditación lado a lado -->
+            <div class="snies-accred-pair">
+              <div class="mini-info-card">
+                <small>Código SNIES</small>
+                <strong>${prog.snies}</strong>
+              </div>
+              <div class="mini-info-card">
+                <small>Acreditación</small>
+                <strong style="color: ${selectedFaculty.color};">${prog.accreditation || 'Alta Calidad'}</strong>
+              </div>
+            </div>
+
+            <div style="font-size: 0.82rem; color: var(--color-text-muted); margin-bottom: 16px;">
+              <strong>Duración:</strong> ${prog.duration}  |  <strong>Modalidad:</strong> ${prog.modality}
+            </div>
+          </div>
+          <a href="${prog.url ? prog.url : `programa.html?id=${prog.id}`}" class="btn-card" style="color: ${selectedFaculty.color};">
+            Explorar Programa y Pensum →
+          </a>
+        </div>
+      `).join('');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const facId = params.get('id') || 'ingenieria';
+      const nivelParam = params.get('nivel');
+
+      selectedFaculty = facultiesCatalog.find(f => f.id === facId) || facultiesCatalog[0];
+      document.title = `${selectedFaculty.name} | USB Cali`;
+
+      // Configurar Hero
+      const hero = document.getElementById('faculty-hero');
+      hero.style.background = `linear-gradient(135deg, ${selectedFaculty.color} 0%, #1D1D1B 100%)`;
+      document.getElementById('fac-title').textContent = selectedFaculty.name;
+      document.getElementById('fac-subtitle').textContent = selectedFaculty.description;
+
+      document.getElementById('fac-meta-grid').innerHTML = `
+        <div class="meta-box"><label>Programas Pregrado</label><span>${selectedFaculty.pregrado.length} Carreras</span></div>
+        <div class="meta-box"><label>Programas Posgrado</label><span>${selectedFaculty.posgrado.length} Programas</span></div>
+        <div class="meta-box"><label>Campus</label><span>La Umbría (Pance)</span></div>
+        <div class="meta-box"><label>Acreditación</label><span>Alta Calidad Institucional</span></div>
+      `;
+
+      // Barra superior rápida para cambiar de facultad
+      document.getElementById('faculty-switcher').innerHTML = facultiesCatalog.map(f => `
+        <a href="facultad.html?id=${f.id}" class="faculty-switch-chip ${f.id === selectedFaculty.id ? 'active' : ''}" style="--chip-color: ${f.color};">
+          ${f.shortName}
+        </a>
+      `).join('');
+
+      if (nivelParam === 'posgrado') {
+        switchFacultyLevel('posgrado');
+      } else {
+        switchFacultyLevel('pregrado');
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Universidad de San Buenaventura Cali | USB Cali</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <div class="top-bar-container">
+      <ul class="top-bar-group">
+        <li><strong style="color: #FFF;">Portales:</strong></li>
+        <li><a href="https://usbcali.edu.co/programas/?Sfacultad=all&Stipo_programa=pregrado&search=" target="_blank">Aspirantes</a></li>
+        <li><a href="https://usbcali.edu.co/estudiantes/" target="_blank">Estudiantes</a></li>
+        <li><a href="https://usbcali.edu.co/egresados/" target="_blank">Egresados</a></li>
+      </ul>
+
+      <ul class="top-bar-group">
+        <li><a href="https://campus.usbco.edu.co/psp/USCS90PR/?cmd=login&languageCd=ESP&" target="_blank" class="top-bar-badge">ASIS (Autoservicio)</a></li>
+        <li><a href="https://aulasvirtuales.usbcali.edu.co/" target="_blank">Campus Virtual</a></li>
+        
+        <!-- DROPDOWN CORREO INSTITUCIONAL -->
+        <li class="top-bar-dropdown">
+          <button type="button" class="top-bar-dropdown-btn" aria-haspopup="true">
+            Correo Institucional ▾
+          </button>
+          <ul class="top-bar-dropdown-menu">
+            <li><a href="https://login.microsoftonline.com/" target="_blank">Correo Administrativo</a></li>
+            <li><a href="https://mail.google.com/a/correo.usbcali.edu.co" target="_blank">Correo Estudiantes</a></li>
+          </ul>
+        </li>
+
+        <li><a href="https://usbcali.edu.co/biblioteca/" target="_blank">Biblioteca</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-container">
+      <a href="index.html"><img src="assets/img/logo-nav-dark.png" alt="USB Cali" class="logo-img"></a>
+      <nav>
+        <ul>
+          <li class="nav-dropdown">
+            <a href="becas.html" class="nav-dropdown-btn">Apoyo Financiero ▾</a>
+            <ul class="nav-dropdown-menu">
+              <li><a href="becas.html">Becas</a></li>
+              <li><a href="convenios.html">Convenios</a></li>
+              <li><a href="financiacion.html">Opciones de Financiación</a></li>
+            </ul>
+          </li>
+          <li><a href="#impacto">Impacto Real</a></li>
+          <li><a href="facultades.html">Facultades</a></li>
+          <li><a href="vida-universitaria.html">Vida Universitaria</a></li>
+          <li><a href="admisiones.html">Admisiones</a></li>
+        </ul>
+      </nav>
+      <a href="admisiones.html" class="btn-primary">Inscríbete Hoy</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero-main">
+    <div class="hero-container">
+      <h1>Descubre tu Pasión y Transforma el Mundo</h1>
+      <p>Formación universitaria acreditada en Alta Calidad en el Campus La Umbría de Pance con tasas de empleabilidad superiores al 88%.</p>
+
+      <form class="search-box" action="facultades.html" method="get">
+        <input type="text" name="q" placeholder="¿Qué facultad o programa buscas? Ej. Ingeniería, Derecho, Maestría...">
+        <button type="submit" class="btn-primary" style="white-space: nowrap; border: none; cursor: pointer;">Explorar Oferta</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- IMPACTO REAL -->
+  <section class="impact-section" id="impacto">
+    <div class="impact-container">
+      <h2 class="section-title">Impacto Real y Proyección Profesional</h2>
+      <p class="section-subtitle">Indicadores consolidados basados en el Observatorio Laboral para la Educación (OLE) y la Oficina de Egresados USB:</p>
+
+      <div class="impact-grid">
+        <div class="impact-card">
+          <div class="impact-number">88.5%</div>
+          <div class="impact-label">Tasa de Empleabilidad</div>
+          <div class="impact-sub">Vinculación formal previa a 6 meses de graduación</div>
+        </div>
+
+        <div class="impact-card">
+          <div class="impact-number">$3.8M+</div>
+          <div class="impact-label">Salario Promedio Inicial</div>
+          <div class="impact-sub">Ingreso promedio en el sector real para egresados USB</div>
+        </div>
+
+        <div class="impact-card">
+          <div class="impact-number">110+</div>
+          <div class="impact-label">Convenios Internacionales</div>
+          <div class="impact-sub">Movilidad académica, doble titulación y prácticas</div>
+        </div>
+
+        <div class="impact-card">
+          <div class="impact-number">Top 15</div>
+          <div class="impact-label">Ranking de Empleabilidad</div>
+          <div class="impact-sub">Clasificación de universidades en el Suroccidente</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FACULTADES (PREGRADO Y POSGRADO - TARJETAS BLANCAS) -->
+  <main class="programs-section" id="facultades">
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px; margin-bottom: 32px;">
+      <div>
+        <h2 class="section-title" style="margin-bottom: 6px; text-align: left;">Nuestras Facultades</h2>
+        <p class="section-subtitle" style="margin-bottom: 0; text-align: left;">Selecciona una facultad para explorar sus programas oficiales de <strong>Pregrado</strong> y <strong>Posgrado</strong> con plan de estudios:</p>
+      </div>
+      <a href="facultades.html" class="btn-primary">Ver Todas las Facultades →</a>
+    </div>
+
+    <div class="faculties-showcase-grid">
+      <!-- 1. Arquitectura, Arte y Diseño -->
+      <a href="facultad.html?id=arquitectura" class="faculty-strip-card" style="--strip-color: #D9531E;">
+        <div class="faculty-strip-top">
+          <span class="faculty-level-pill">Pregrado y Posgrado</span>
+        </div>
+        <div class="faculty-strip-body">
+          <div>
+            <small>Facultad de</small>
+            <h3>Arquitectura, Arte y Diseño</h3>
+            <p>Arquitectura, Diseño de Vestuario y Maestrías en diseño sostenible y territorio.</p>
+          </div>
+          <span class="faculty-strip-cta">Explorar Facultad →</span>
+        </div>
+      </a>
+
+      <!-- 2. Ciencias Económicas -->
+      <a href="facultad.html?id=economicas" class="faculty-strip-card" style="--strip-color: #008751;">
+        <div class="faculty-strip-top">
+          <span class="faculty-level-pill">Pregrado y Posgrado</span>
+        </div>
+        <div class="faculty-strip-body">
+          <div>
+            <small>Facultad de</small>
+            <h3>Ciencias Económicas</h3>
+            <p>Mercadeo y Negocios Internacionales, Administración, Contaduría y Alta Gerencia.</p>
+          </div>
+          <span class="faculty-strip-cta">Explorar Facultad →</span>
+        </div>
+      </a>
+
+      <!-- 3. Ciencias Humanas y Sociales -->
+      <a href="facultad.html?id=humanas" class="faculty-strip-card" style="--strip-color: #00829B;">
+        <div class="faculty-strip-top">
+          <span class="faculty-level-pill">Pregrado y Posgrado</span>
+        </div>
+        <div class="faculty-strip-body">
+          <div>
+            <small>Facultad de</small>
+            <h3>Ciencias Humanas y Sociales</h3>
+            <p>Psicología, Licenciaturas, Psicología Clínica y Maestrías en Educación y Desarrollo.</p>
+          </div>
+          <span class="faculty-strip-cta">Explorar Facultad →</span>
+        </div>
+      </a>
+
+      <!-- 4. Derecho y Ciencias Políticas -->
+      <a href="facultad.html?id=derecho" class="faculty-strip-card" style="--strip-color: #EF7D00;">
+        <div class="faculty-strip-top">
+          <span class="faculty-level-pill">Pregrado y Posgrado</span>
+        </div>
+        <div class="faculty-strip-body">
+          <div>
+            <small>Facultad de</small>
+            <h3>Derecho y Ciencias Políticas</h3>
+            <p>Derecho, Gobierno y Relaciones Internacionales, Especializaciones y Maestría en Derecho.</p>
+          </div>
+          <span class="faculty-strip-cta">Explorar Facultad →</span>
+        </div>
+      </a>
+
+      <!-- 5. Ingeniería -->
+      <a href="facultad.html?id=ingenieria" class="faculty-strip-card" style="--strip-color: #7A1C79;">
+        <div class="faculty-strip-top">
+          <span class="faculty-level-pill">Pregrado y Posgrado</span>
+        </div>
+        <div class="faculty-strip-body">
+          <div>
+            <small>Facultad de</small>
+            <h3>Ingeniería</h3>
+            <p>Ingeniería Multimedia (ABET), Sistemas, Electrónica, Industrial y Posgrados Tech.</p>
+          </div>
+          <span class="faculty-strip-cta">Explorar Facultad →</span>
+        </div>
+      </a>
+    </div>
+  </main>
+
+  <!-- CAMPUS HIGHLIGHTS -->
+  <section class="campus-highlight">
+    <div class="campus-container">
+      <div class="highlight-card">
+        <img src="assets/img/LAGO.jpg" alt="Lago Franciscano USB" class="highlight-img">
+        <div class="highlight-body">
+          <h4>Lago y Zonas Verdes</h4>
+          <p>Ecosistema natural bioclimático propicio para el descanso y el encuentro estudiantil en Pance.</p>
+        </div>
+      </div>
+
+      <div class="highlight-card">
+        <img src="assets/img/PISCINA.jpg" alt="Piscina Semiolímpica USB" class="highlight-img">
+        <div class="highlight-body">
+          <h4>Complejo Acuático</h4>
+          <p>Piscina semiolímpica para natación y disciplinas deportivas de alto rendimiento.</p>
+        </div>
+      </div>
+
+      <div class="highlight-card">
+        <img src="assets/img/pachito cancha.jpg" alt="Pachito Mascota" class="highlight-img">
+        <div class="highlight-body">
+          <h4>Vida Estudiantil y Pachito</h4>
+          <p>Torneos deportivos, cultura franciscana y el entusiasmo de nuestra mascota oficial.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARRUSEL DE PARTNERS -->
+  <section class="partners-section">
+    <div class="partners-title">Partners de Innovación, Aliados Estratégicos y Acreditaciones</div>
+    <div class="partners-carousel-wrapper">
+      <button type="button" class="carousel-nav-btn prev" onclick="movePartnersCarousel(-1)" aria-label="Anterior">❮</button>
+      <div class="partners-carousel-viewport">
+        <div class="partners-carousel-track" id="partners-track">
+          <div class="partner-slide"><img src="assets/img/AWS.png" alt="AWS Academy" class="partner-img-item"></div>
+          <div class="partner-slide"><img src="assets/img/Huawei-ICT-ACADEMY.png" alt="Huawei ICT Academy" class="partner-img-item"></div>
+          <div class="partner-slide"><img src="assets/img/ABET-be-confident.jpg" alt="Acreditación Internacional ABET" class="partner-img-item"></div>
+          <div class="partner-slide"><img src="assets/img/images.png" alt="Cisco Networking Academy" class="partner-img-item"></div>
+          <div class="partner-slide"><img src="assets/img/images (1).png" alt="Cámara de Comercio de Cali" class="partner-img-item"></div>
+          <!-- Duplicados para desplazamiento continuo -->
+          <div class="partner-slide"><img src="assets/img/AWS.png" alt="AWS Academy" class="partner-img-item"></div>
+          <div class="partner-slide"><img src="assets/img/Huawei-ICT-ACADEMY.png" alt="Huawei ICT Academy" class="partner-img-item"></div>
+          <div class="partner-slide"><img src="assets/img/ABET-be-confident.jpg" alt="Acreditación Internacional ABET" class="partner-img-item"></div>
+          <div class="partner-slide"><img src="assets/img/images.png" alt="Cisco Networking Academy" class="partner-img-item"></div>
+          <div class="partner-slide"><img src="assets/img/images (1).png" alt="Cámara de Comercio de Cali" class="partner-img-item"></div>
+        </div>
+      </div>
+      <button type="button" class="carousel-nav-btn next" onclick="movePartnersCarousel(1)" aria-label="Siguiente">❯</button>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       CERTIFICACIONES QUE NOS RESPALDAN
+       ========================================================= -->
+  <section class="certifications-section">
+    <div class="certifications-container">
+      <h2>Certificaciones que nos respaldan</h2>
+      <div class="certifications-logos">
+        <div class="cert-logo-item">
+          <img src="assets/img/acreditacion-1.png" alt="Acreditación Institucional de Alta Calidad Multicampus - Válida por 6 años" loading="lazy">
+        </div>
+        <div class="cert-logo-item cert-logo-wide">
+          <img src="assets/img/logos-icontec-4.png" alt="Certificaciones ICONTEC ISO 9001, ISO 14001, ISO 45001 e IQNET" loading="lazy">
+        </div>
+        <div class="cert-logo-item">
+          <img src="assets/img/no-discriminacion-web.png" alt="Sello de No Discriminación" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       INFORMACIÓN LEGAL MEN Y ENTIDADES ALIADAS
+       ========================================================= -->
+  <section class="legal-men-section">
+    <div class="legal-men-container">
+      <div class="legal-men-watermark" aria-hidden="true">
+        <svg viewBox="0 0 200 200" width="230" height="230" fill="none" stroke="#EF7D00" stroke-width="2">
+          <circle cx="100" cy="100" r="88" stroke-dasharray="6 4"></circle>
+          <circle cx="100" cy="100" r="70"></circle>
+          <path d="M75 70 L100 50 L125 70 L125 125 C125 140 100 152 100 152 C100 152 75 140 75 125 Z"></path>
+        </svg>
+      </div>
+
+      <div class="legal-men-content">
+        <h3>Información legal MEN</h3>
+        <div class="legal-men-links">
+          <a href="https://usbcali.edu.co/wp-content/uploads/2023/10/reglamento_profesoral_corporativo_17x24_0.pdf" target="_blank" rel="noopener">
+            <span class="ext-icon">↗</span> Reglamento Profesoral Corporativo
+          </a>
+          <a href="https://usbcali.edu.co/wp-content/uploads/2023/11/2reglamento_estudiantil_corporativo_2020_compressed.pdf" target="_blank" rel="noopener">
+            <span class="ext-icon">↗</span> Reglamento Estudiantil
+          </a>
+          <a href="https://usbcali.edu.co/wp-content/uploads/2026/03/S.1.1-1981-Valores-de-las-matriculas-y-demas-derechos-pecuaniarios-para-el-ano-2026.pdf" target="_blank" rel="noopener">
+            <span class="ext-icon">↗</span> Resolución Derechos Pecuniarios 2026
+          </a>
+          <a href="https://usbcali.edu.co/wp-content/uploads/2026/07/S.1.1-2018-Se-modifica-Resolucion-S.1.1-1981-Vr.-Matricula-Lenguas-y-Cultura.pdf" target="_blank" rel="noopener">
+            <span class="ext-icon">↗</span> Modificación Derechos Pecuniarios 2026 (Lenguas y Cultura)
+          </a>
+          <a href="https://usbcali.edu.co/wp-content/uploads/2024/07/Estatuto-Organico-USB-202471.pdf" target="_blank" rel="noopener">
+            <span class="ext-icon">↗</span> Estatuto Orgánico
+          </a>
+          <a href="https://usbcali.edu.co/wp-content/uploads/2024/07/Lineamientos-para-la-implementacion-RPC.pdf" target="_blank" rel="noopener">
+            <span class="ext-icon">↗</span> Lineamientos para la Implementación RPC
+          </a>
+          <a href="https://usbcali.edu.co/wp-content/uploads/2026/04/S.1.1-1992-Resolucion-Nuevos-Programas-Posgrados-2026.pdf" target="_blank" rel="noopener">
+            <span class="ext-icon">↗</span> Resolución Nuevos Programas de Posgrados 2026
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- FRANJA DE ENTIDADES OFICIALES -->
+    <div class="entities-strip">
+      <div class="entities-container">
+        <a href="https://www.ruav.edu.co/" target="_blank" rel="noopener" class="entity-item">
+          <span style="color: #E11D48; font-weight: 800; font-size: 1.35rem;">RUAV</span>
+        </a>
+
+        <a href="https://www.mineducacion.gov.co/" target="_blank" rel="noopener" class="entity-item">
+          <div class="entity-men">
+            <span class="men-shield">🏛</span>
+            <div>
+              <strong>MINISTERIO DE EDUCACIÓN</strong>
+              <span>NACIONAL</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="https://www.cna.gov.co/" target="_blank" rel="noopener" class="entity-item">
+          <div class="entity-cna">
+            <strong style="color: #0369A1; font-size: 1.4rem; letter-spacing: -0.03em;">CNA</strong>
+            <small>Consejo Nacional de Acreditación</small>
+          </div>
+        </a>
+
+        <a href="https://www.fiuc.org/" target="_blank" rel="noopener" class="entity-item">
+          <div class="entity-fiuc">
+            <strong style="color: #1D4ED8; font-size: 1.25rem;">FIUC</strong>
+            <small>Federación Internacional de Universidades Católicas</small>
+          </div>
+        </a>
+
+        <a href="https://snies.mineducacion.gov.co/" target="_blank" rel="noopener" class="entity-item">
+          <div class="entity-snies">
+            <strong style="color: #1E3A8A; font-size: 1.5rem; letter-spacing: 0.02em;">SNIES</strong>
+            <span>Sistema Nacional de Información<br>de la Educación Superior</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PACHITO WIDGET -->
+  <div class="pachito-widget" title="Chatear con Pachito">
+    <div class="pachito-bubble">¡Hola! ¿Necesitas ayuda? Haz clic aquí</div>
+    <div class="pachito-avatar-box"></div>
+  </div>
+  
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h4>USB Cali</h4>
+        <p>Cra. 122 #6-65, Barrio Pance, Cali, Valle del Cauca.</p>
+        <p>Acreditación Institucional de Alta Calidad.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Portales y Servicios</h4>
+        <a href="https://campus.usbco.edu.co/psp/USCS90PR/?cmd=login&languageCd=ESP&">Portal ASIS</a>
+        <a href="https://aulasvirtuales.usbcali.edu.co/">Campus Virtual</a>
+        <a href="https://usbcali.edu.co/biblioteca/">Biblioteca Digital</a>
+      </div>
+      <div class="footer-col">
+        <h4>Admisiones</h4>
+        <a href="admisiones.html">Simulador de Becas ICFES</a>
+        <a href="admisiones.html">Inscripciones Abiertas</a>
+        <a href="vida-universitaria.html">Visitas Guiadas</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <p>PBX: +57 (602) 488 2222</p>
+        <p>Línea Gratuita Nacional: 01 8000 124 350</p>
+      </div>
+    </div>
+    <div class="copyright">© 2026 Universidad de San Buenaventura Cali. Todos los derechos reservados.</div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    function movePartnersCarousel(direction) {
+      const track = document.getElementById('partners-track');
+      if (!track) return;
+      track.style.animation = 'none';
+      const currentTransform = new WebKitCSSMatrix(window.getComputedStyle(track).transform).m41;
+      const step = 260;
+      let nextX = currentTransform + (direction * -step);
+      if (nextX < -1200) nextX = 0;
+      if (nextX > 0) nextX = -1000;
+      track.style.transform = `translateX(${nextX}px)`;
+    }
+  </script>
+</body>
+</html>
