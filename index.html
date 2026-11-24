@@ -16,14 +16,14 @@
     <div class="top-bar-container">
       <ul class="top-bar-group">
         <li><strong style="color: #FFF;">Portales:</strong></li>
-        <li><a href="https://usbcali.edu.co/programas/?Sfacultad=all&Stipo_programa=pregrado&search=" target="_blank">Aspirantes</a></li>
-        <li><a href="https://usbcali.edu.co/estudiantes/" target="_blank">Estudiantes</a></li>
-        <li><a href="https://usbcali.edu.co/egresados/" target="_blank">Egresados</a></li>
+        <li><a href="https://usbcali.edu.co/programas/?Sfacultad=all&Stipo_programa=pregrado&search=" target="_blank" rel="noopener">Aspirantes</a></li>
+        <li><a href="https://usbcali.edu.co/estudiantes/" target="_blank" rel="noopener">Estudiantes</a></li>
+        <li><a href="https://usbcali.edu.co/egresados/" target="_blank" rel="noopener">Egresados</a></li>
       </ul>
 
       <ul class="top-bar-group">
-        <li><a href="https://campus.usbco.edu.co/psp/USCS90PR/?cmd=login&languageCd=ESP&" target="_blank" class="top-bar-badge">ASIS (Autoservicio)</a></li>
-        <li><a href="https://aulasvirtuales.usbcali.edu.co/" target="_blank">Campus Virtual</a></li>
+        <li><a href="https://campus.usbco.edu.co/psp/USCS90PR/?cmd=login&languageCd=ESP&" target="_blank" rel="noopener" class="top-bar-badge">ASIS (Autoservicio)</a></li>
+        <li><a href="https://aulasvirtuales.usbcali.edu.co/" target="_blank" rel="noopener">Campus Virtual</a></li>
         
         <!-- DROPDOWN CORREO INSTITUCIONAL -->
         <li class="top-bar-dropdown">
@@ -31,12 +31,12 @@
             Correo Institucional ▾
           </button>
           <ul class="top-bar-dropdown-menu">
-            <li><a href="https://login.microsoftonline.com/" target="_blank">Correo Administrativo</a></li>
-            <li><a href="https://mail.google.com/a/correo.usbcali.edu.co" target="_blank">Correo Estudiantes</a></li>
+            <li><a href="https://login.microsoftonline.com/" target="_blank" rel="noopener">Correo Administrativo</a></li>
+            <li><a href="https://mail.google.com/a/correo.usbcali.edu.co" target="_blank" rel="noopener">Correo Estudiantes</a></li>
           </ul>
         </li>
 
-        <li><a href="https://usbcali.edu.co/biblioteca/" target="_blank">Biblioteca</a></li>
+        <li><a href="https://usbcali.edu.co/biblioteca/" target="_blank" rel="noopener">Biblioteca</a></li>
       </ul>
     </div>
   </div>
@@ -55,21 +55,30 @@
               <li><a href="financiacion.html">Opciones de Financiación</a></li>
             </ul>
           </li>
-          <li><a href="#impacto">Impacto Real</a></li>
+          <li><a href="impacto-real.html">Impacto Real</a></li>
           <li><a href="facultades.html">Facultades</a></li>
           <li><a href="vida-universitaria.html">Vida Universitaria</a></li>
           <li><a href="admisiones.html">Admisiones</a></li>
         </ul>
       </nav>
-      <a href="admisiones.html" class="btn-primary">Inscríbete Hoy</a>
+      <div class="header-actions">
+        <button type="button" class="header-search-trigger" id="toggle-global-search" aria-label="Buscar en el portal" title="Buscador rápido">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+        <a href="admisiones.html" class="btn-primary">Inscríbete Hoy</a>
+      </div>
     </div>
   </header>
 
-  <!-- HERO -->
+  <!-- HERO MÁS ALTO Y LLAMATIVO -->
   <section class="hero-main">
     <div class="hero-container">
+      <span class="hero-eyebrow">Acreditación Institucional de Alta Calidad Multicampus · Cali, Colombia</span>
       <h1>Descubre tu Pasión y Transforma el Mundo</h1>
-      <p>Formación universitaria acreditada en Alta Calidad en el Campus La Umbría de Pance con tasas de empleabilidad superiores al 88%.</p>
+      <p>Formación universitaria acreditada en Alta Calidad en el Campus La Umbría de Pance con tasas de empleabilidad superiores al 88.5%.</p>
 
       <form class="search-box" action="facultades.html" method="get">
         <input type="text" name="q" placeholder="¿Qué facultad o programa buscas? Ej. Ingeniería, Derecho, Maestría...">
@@ -78,7 +87,7 @@
     </div>
   </section>
 
-  <!-- IMPACTO REAL -->
+  <!-- IMPACTO REAL (RESUMEN + ACCESO A INFORME OLE COMPLETO) -->
   <section class="impact-section" id="impacto">
     <div class="impact-container">
       <h2 class="section-title">Impacto Real y Proyección Profesional</h2>
@@ -109,10 +118,14 @@
           <div class="impact-sub">Clasificación de universidades en el Suroccidente</div>
         </div>
       </div>
+
+      <div style="text-align: center; margin-top: 34px;">
+        <a href="impacto-real.html" class="btn-primary">Ver Informe Completo OLE por Facultad →</a>
+      </div>
     </div>
   </section>
 
-  <!-- FACULTADES (PREGRADO Y POSGRADO - TARJETAS BLANCAS) -->
+  <!-- FACULTADES CON FOTOS E ICONOGRAFÍA -->
   <main class="programs-section" id="facultades">
     <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px; margin-bottom: 32px;">
       <div>
@@ -125,8 +138,12 @@
     <div class="faculties-showcase-grid">
       <!-- 1. Arquitectura, Arte y Diseño -->
       <a href="facultad.html?id=arquitectura" class="faculty-strip-card" style="--strip-color: #D9531E;">
-        <div class="faculty-strip-top">
+        <div class="faculty-strip-media">
+          <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=700&q=80" alt="Facultad de Arquitectura, Arte y Diseño" loading="lazy">
           <span class="faculty-level-pill">Pregrado y Posgrado</span>
+          <span class="faculty-icon-badge" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+          </span>
         </div>
         <div class="faculty-strip-body">
           <div>
@@ -140,8 +157,12 @@
 
       <!-- 2. Ciencias Económicas -->
       <a href="facultad.html?id=economicas" class="faculty-strip-card" style="--strip-color: #008751;">
-        <div class="faculty-strip-top">
+        <div class="faculty-strip-media">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=700&q=80" alt="Facultad de Ciencias Económicas" loading="lazy">
           <span class="faculty-level-pill">Pregrado y Posgrado</span>
+          <span class="faculty-icon-badge" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+          </span>
         </div>
         <div class="faculty-strip-body">
           <div>
@@ -155,8 +176,12 @@
 
       <!-- 3. Ciencias Humanas y Sociales -->
       <a href="facultad.html?id=humanas" class="faculty-strip-card" style="--strip-color: #00829B;">
-        <div class="faculty-strip-top">
+        <div class="faculty-strip-media">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=700&q=80" alt="Facultad de Ciencias Humanas y Sociales" loading="lazy">
           <span class="faculty-level-pill">Pregrado y Posgrado</span>
+          <span class="faculty-icon-badge" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          </span>
         </div>
         <div class="faculty-strip-body">
           <div>
@@ -170,8 +195,12 @@
 
       <!-- 4. Derecho y Ciencias Políticas -->
       <a href="facultad.html?id=derecho" class="faculty-strip-card" style="--strip-color: #EF7D00;">
-        <div class="faculty-strip-top">
+        <div class="faculty-strip-media">
+          <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=700&q=80" alt="Facultad de Derecho y Ciencias Políticas" loading="lazy">
           <span class="faculty-level-pill">Pregrado y Posgrado</span>
+          <span class="faculty-icon-badge" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          </span>
         </div>
         <div class="faculty-strip-body">
           <div>
@@ -185,8 +214,12 @@
 
       <!-- 5. Ingeniería -->
       <a href="facultad.html?id=ingenieria" class="faculty-strip-card" style="--strip-color: #7A1C79;">
-        <div class="faculty-strip-top">
+        <div class="faculty-strip-media">
+          <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=700&q=80" alt="Facultad de Ingeniería" loading="lazy">
           <span class="faculty-level-pill">Pregrado y Posgrado</span>
+          <span class="faculty-icon-badge" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+          </span>
         </div>
         <div class="faculty-strip-body">
           <div>
@@ -253,9 +286,7 @@
     </div>
   </section>
 
-  <!-- =========================================================
-       CERTIFICACIONES QUE NOS RESPALDAN
-       ========================================================= -->
+  <!-- CERTIFICACIONES QUE NOS RESPALDAN -->
   <section class="certifications-section">
     <div class="certifications-container">
       <h2>Certificaciones que nos respaldan</h2>
@@ -273,9 +304,7 @@
     </div>
   </section>
 
-  <!-- =========================================================
-       INFORMACIÓN LEGAL MEN Y ENTIDADES ALIADAS
-       ========================================================= -->
+  <!-- INFORMACIÓN LEGAL MEN Y ENTIDADES ALIADAS -->
   <section class="legal-men-section">
     <div class="legal-men-container">
       <div class="legal-men-watermark" aria-hidden="true">
@@ -361,33 +390,147 @@
     <div class="pachito-avatar-box"></div>
   </div>
   
-  <!-- FOOTER -->
+<!-- FOOTER OFICIAL ESTILO PÁGINA PRINCIPAL USB CALI -->
   <footer>
-    <div class="footer-container">
-      <div class="footer-col">
-        <h4>USB Cali</h4>
-        <p>Cra. 122 #6-65, Barrio Pance, Cali, Valle del Cauca.</p>
-        <p>Acreditación Institucional de Alta Calidad.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Portales y Servicios</h4>
-        <a href="https://campus.usbco.edu.co/psp/USCS90PR/?cmd=login&languageCd=ESP&">Portal ASIS</a>
-        <a href="https://aulasvirtuales.usbcali.edu.co/">Campus Virtual</a>
-        <a href="https://usbcali.edu.co/biblioteca/">Biblioteca Digital</a>
-      </div>
-      <div class="footer-col">
-        <h4>Admisiones</h4>
-        <a href="admisiones.html">Simulador de Becas ICFES</a>
-        <a href="admisiones.html">Inscripciones Abiertas</a>
-        <a href="vida-universitaria.html">Visitas Guiadas</a>
-      </div>
-      <div class="footer-col">
-        <h4>Contacto</h4>
-        <p>PBX: +57 (602) 488 2222</p>
-        <p>Línea Gratuita Nacional: 01 8000 124 350</p>
+    <div class="footer-top-row">
+      <a href="index.html" class="footer-logo-left">
+        <img src="assets/img/logo-nav-white.png" alt="Universidad de San Buenaventura Cali">
+      </a>
+      <div class="footer-socials">
+        <a href="https://www.facebook.com/usbcali" target="_blank" rel="noopener" class="footer-social-btn" style="background:#1877F2;" aria-label="Facebook">f</a>
+        <a href="https://www.instagram.com/usbcali/" target="_blank" rel="noopener" class="footer-social-btn" style="background:#E4405F;" aria-label="Instagram">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+        </a>
+        <a href="https://x.com/usbcali" target="_blank" rel="noopener" class="footer-social-btn" style="background:#000000; border:1px solid #333;" aria-label="X">𝕏</a>
+        <a href="https://www.youtube.com/user/usbcali" target="_blank" rel="noopener" class="footer-social-btn" style="background:#FF0000;" aria-label="YouTube">▶</a>
+        <a href="https://www.linkedin.com/school/universidad-de-san-buenaventura-cali/" target="_blank" rel="noopener" class="footer-social-btn" style="background:#0A66C2;" aria-label="LinkedIn">in</a>
+        <a href="https://www.tiktok.com/@usbcali" target="_blank" rel="noopener" class="footer-social-btn" style="background:#111111; border:1px solid #333;" aria-label="TikTok">♪</a>
       </div>
     </div>
-    <div class="copyright">© 2026 Universidad de San Buenaventura Cali. Todos los derechos reservados.</div>
+
+    <div class="footer-container">
+      <!-- Columna 1: Accesos directos -->
+      <div class="footer-col">
+        <h4>Accesos directos</h4>
+        <a href="https://usbcali.edu.co/" target="_blank" rel="noopener">
+          <span class="footer-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"></rect><line x1="2" y1="20" x2="22" y2="20"></line></svg></span>
+          HUB CTeI
+        </a>
+        <a href="https://campus.usbco.edu.co/psp/USCS90PR/?cmd=login&languageCd=ESP&" target="_blank" rel="noopener">
+          <span class="footer-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"></rect><circle cx="12" cy="10" r="2.5"></circle><path d="M7.5 17c.8-2 2.5-3 4.5-3s3.7 1 4.5 3"></path></svg></span>
+          ASIS - Autoservicio
+        </a>
+        <a href="https://usbcali.edu.co/biblioteca/" target="_blank" rel="noopener">
+          <span class="footer-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg></span>
+          Biblioteca
+        </a>
+        <a href="https://aulasvirtuales.usbcali.edu.co/" target="_blank" rel="noopener">
+          <span class="footer-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"></rect><line x1="2" y1="20" x2="22" y2="20"></line></svg></span>
+          Aulas Virtuales
+        </a>
+        <a href="https://mail.google.com/a/correo.usbcali.edu.co" target="_blank" rel="noopener">
+          <span class="footer-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><polyline points="3 7 12 13 21 7"></polyline></svg></span>
+          Correo estudiantes
+        </a>
+        <a href="https://login.microsoftonline.com/" target="_blank" rel="noopener">
+          <span class="footer-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><polyline points="3 7 12 13 21 7"></polyline></svg></span>
+          Correo administrativo
+        </a>
+        <a href="https://usbcali.edu.co/directorio/" target="_blank" rel="noopener">
+          <span class="footer-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"></rect><circle cx="12" cy="10" r="2.2"></circle><path d="M8.5 16.5c.7-1.6 2-2.5 3.5-2.5s2.8.9 3.5 2.5"></path></svg></span>
+          Directorio
+        </a>
+        <a href="https://usbcali.edu.co/intranet/" target="_blank" rel="noopener">
+          <span class="footer-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="5" rx="1"></rect><rect x="3" y="16" width="6" height="5" rx="1"></rect><rect x="15" y="16" width="6" height="5" rx="1"></rect><path d="M12 8v4M6 16v-4h12v4"></path></svg></span>
+          Intranet
+        </a>
+        <a href="https://editorialbonaventuriana.usb.edu.co/" target="_blank" rel="noopener">
+          <span class="footer-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg></span>
+          Editorial
+        </a>
+        <a href="https://usbcali.edu.co/consultorio-juridico/" target="_blank" rel="noopener">
+          <span class="footer-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"></rect><circle cx="12" cy="10" r="2.5"></circle><path d="M7.5 17c.8-2 2.5-3 4.5-3s3.7 1 4.5 3"></path></svg></span>
+          Consultorio Jurídico
+        </a>
+        <a href="https://usbcali.edu.co/" target="_blank" rel="noopener">
+          <span class="footer-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"></rect><line x1="2" y1="20" x2="22" y2="20"></line></svg></span>
+          RadioMedia USB
+        </a>
+        <a href="https://usbcali.edu.co/trabaja-con-nosotros/" target="_blank" rel="noopener">
+          <span class="footer-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"></rect><circle cx="12" cy="10" r="2.5"></circle><path d="M7.5 17c.8-2 2.5-3 4.5-3s3.7 1 4.5 3"></path></svg></span>
+          Trabaja con nosotros
+        </a>
+      </div>
+
+      <!-- Columna 2: Facultades -->
+      <div class="footer-col">
+        <h4>Facultades</h4>
+        <a href="facultad.html?id=arquitectura">Arquitectura, Arte y Diseño</a>
+        <a href="facultad.html?id=economicas">Ciencias Económicas</a>
+        <a href="facultad.html?id=humanas">Ciencias Humanas y Sociales</a>
+        <a href="facultad.html?id=derecho">Derecho y Ciencias Políticas</a>
+        <a href="facultad.html?id=ingenieria">Ingeniería</a>
+      </div>
+
+      <!-- Columna 3: Contacto -->
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <p>
+          <span class="footer-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon><line x1="8" y1="2" x2="8" y2="18"></line><line x1="16" y1="6" x2="16" y2="22"></line></svg></span>
+          Carrera 122 # 6-65, Cali, Colombia
+        </p>
+        <a href="https://wa.me/573102334941" target="_blank" rel="noopener">
+          <span class="footer-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path><path d="M9.5 9.5c.3 1.5 1.8 3.2 3.5 3.8l1.2-.9c.3-.2.7-.2 1 0l1.3.9c.3.2.4.7.2 1-.5.9-1.5 1.4-2.5 1.3-2.9-.3-5.7-3.1-6-6-.1-1 .4-2 1.3-2.5.3-.2.8-.1 1 .2l.9 1.3c.2.3.2.7 0 1l-.9 1.2z"></path></svg></span>
+          +57 3102334941
+        </a>
+        <p>
+          <span class="footer-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></span>
+          PBX 602 488 22 22
+        </p>
+        <a href="mailto:informacion@usbcali.edu.co">
+          <span class="footer-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><polyline points="3 7 12 13 21 7"></polyline></svg></span>
+          informacion@usbcali.edu.co
+        </a>
+        <a href="https://usbcali.edu.co/pqrs/" target="_blank" rel="noopener">
+          <span class="footer-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></span>
+          PQRS
+        </a>
+      </div>
+
+      <!-- Columna 4: Legal -->
+      <div class="footer-col footer-legal-text">
+        <h4>Legal</h4>
+        <p>Resolución número 1326 del 25 de marzo de 1975, expedido(a) por Ministerio de Educación Nacional</p>
+        <p>Institución Universitaria con Acreditación Institucional Multicampus - Res. No. 014620 del 12 de agosto del 2021 del Ministerio de Educación Nacional</p>
+        <p><strong>Código de institución : 1716</strong></p>
+        <p><strong>VIGILADA MINEDUCACIÓN</strong></p>
+        <p>Línea de Transparencia :<br>01-8000-12-00-33</p>
+      </div>
+
+      <!-- Columna 5: Sedes San Buenaventura -->
+      <div class="footer-col">
+        <h4>Sedes San Buenaventura</h4>
+        <a href="https://www.usb.edu.co/" target="_blank" rel="noopener">Rectoría General</a>
+        <a href="https://www.usbbog.edu.co/" target="_blank" rel="noopener">Bogotá</a>
+        <a href="https://www.usbmed.edu.co/" target="_blank" rel="noopener">Medellín</a>
+        <a href="https://www.usbcartagena.edu.co/" target="_blank" rel="noopener">Cartagena</a>
+      </div>
+    </div>
+
+    <!-- Sello marca de agua derecha -->
+    <svg class="footer-seal-watermark" viewBox="0 0 200 200" fill="none" stroke="#FFFFFF" stroke-width="3" aria-hidden="true">
+      <circle cx="100" cy="100" r="92"></circle>
+      <circle cx="100" cy="100" r="74" stroke-dasharray="5 4"></circle>
+      <path d="M74 68 L100 48 L126 68 L126 124 C126 140 100 152 100 152 C100 152 74 140 74 124 Z"></path>
+    </svg>
+
+    <!-- Franja inferior naranja -->
+    <div class="footer-bottom-orange">
+      <div class="footer-bottom-inner">
+        <span>Todos los derechos reservados © 2026 · Universidad de San Buenaventura Cali</span>
+        <a href="https://usbcali.edu.co/politicas-de-privacidad/" target="_blank" rel="noopener">Políticas de privacidad</a>
+      </div>
+    </div>
   </footer>
 
   <script src="assets/js/main.js"></script>
