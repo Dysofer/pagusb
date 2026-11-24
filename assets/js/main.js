@@ -1,13 +1,13 @@
 /* ==========================================================================
    SISTEMA INTERACTIVO USB CALI:
-   1. Feedback de estado activo en navegación (Heurística 1)
-   2. Panel desplegable de búsqueda rápida en todas las pantallas (Heurística 6 y 9)
-   3. Sticky acompañamiento en Admisiones (Heurística 4 y 7)
-   4. Footer institucional unificado en todas las vistas (Heurística 4)
-   5. Asistente Virtual Pachito con escalamiento a asesor humano (Heurística 10)
+1. Feedback de estado activo en navegación (Heurística 1)
+2. Panel desplegable de búsqueda rápida (Heurística 6 y 9)
+3. Sticky acompañamiento en Admisiones (Heurística 4 y 7)
+4. Footer institucional unificado en todas las vistas (Heurística 4)
+5. Asistente Virtual Pachito con escalamiento a asesor humano (Heurística 10)
    ========================================================================== */
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
   highlightActiveNav();
   ensureGlobalHeaderSearch();
   ensureStickyAdmissionsCard();
@@ -16,61 +16,79 @@ document.addEventListener('DOMContentLoaded', () => {
   initPachitoChatbot();
 });
 
+function isIndexPage() {
+  const path = window.location.pathname.toLowerCase();
+  const page = path.split("/").pop() || "index.html";
+  return page === "" || page === "index.html";
+}
+
 /* --------------------------------------------------------------------------
-   1. FEEDBACK DE ESTADO ACTIVO EN MENÚ PRINCIPAL (HEURÍSTICA 1)
+1. FEEDBACK DE ESTADO ACTIVO EN MENÚ PRINCIPAL (HEURÍSTICA 1)
    -------------------------------------------------------------------------- */
 function highlightActiveNav() {
-  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-  const navLinks = document.querySelectorAll('header nav a');
+  const currentPage = window.location.pathname.split("/").pop() || "index.html";
+  const navLinks = document.querySelectorAll("header nav a");
 
   navLinks.forEach((link) => {
-    const href = link.getAttribute('href');
+    const href = link.getAttribute("href");
     if (!href) return;
 
     if (href === currentPage) {
-      link.classList.add('active');
+      link.classList.add("active");
     }
 
     if (
-      ['becas.html', 'convenios.html', 'financiacion.html'].includes(currentPage) &&
-      link.classList.contains('nav-dropdown-btn')
+      ["becas.html", "convenios.html", "financiacion.html"].includes(currentPage) &&
+      link.classList.contains("nav-dropdown-btn")
     ) {
-      link.classList.add('active');
+      link.classList.add("active");
     }
 
     if (
       [
-        'facultad.html',
-        'ingenieria-multimedia.html',
-        'derecho.html',
-        'psicologia.html',
-        'mercadco.html',
-        'programa.html'
+        "facultad.html",
+        "ingenieria-multimedia.html",
+        "derecho.html",
+        "psicologia.html",
+        "mercadeo.html",
+        "programa.html"
       ].includes(currentPage) &&
-      href === 'facultades.html'
+      href === "facultades.html"
     ) {
-      link.classList.add('active');
+      link.classList.add("active");
     }
   });
 }
 
 /* --------------------------------------------------------------------------
-   2. INYECCIÓN AUTOMÁTICA DE LUPA EN TODAS LAS PANTALLAS
+2. INYECCIÓN DE LUPA EN CABECERA (SOLO FUERA DE INDEX.HTML)
    -------------------------------------------------------------------------- */
 function ensureGlobalHeaderSearch() {
-  const headerContainer = document.querySelector('.header-container');
-  if (!headerContainer || document.getElementById('toggle-global-search')) return;
+  if (isIndexPage()) {
+    const existingBtn = document.getElementById("toggle-global-search");
+    if (existingBtn) {
+      existingBtn.remove();
+    }
+    const headerActions = document.querySelector(".header-actions");
+    if (headerActions && headerActions.children.length === 0) {
+      headerActions.remove();
+    }
+    return;
+  }
 
-  const ctaBtn = headerContainer.querySelector('.btn-primary');
-  const actionsDiv = document.createElement('div');
-  actionsDiv.className = 'header-actions';
+  const headerContainer = document.querySelector(".header-container");
+  if (!headerContainer || document.getElementById("toggle-global-search")) return;
 
-  const searchBtn = document.createElement('button');
-  searchBtn.type = 'button';
-  searchBtn.id = 'toggle-global-search';
-  searchBtn.className = 'header-search-trigger';
-  searchBtn.setAttribute('aria-label', 'Buscar en el portal');
-  searchBtn.title = 'Buscador rápido';
+  const ctaBtn = headerContainer.querySelector(".btn-primary");
+  const actionsDiv = document.createElement("div");
+  actionsDiv.className = "header-actions";
+
+  const searchBtn = document.createElement("button");
+  searchBtn.type = "button";
+  searchBtn.id = "toggle-global-search";
+  searchBtn.className = "header-search-trigger";
+  searchBtn.setAttribute("aria-label", "Buscar en el portal");
+  searchBtn.title = "Buscador rápido";
   searchBtn.innerHTML = `
     <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
       <circle cx="11" cy="11" r="8"></circle>
@@ -86,42 +104,42 @@ function ensureGlobalHeaderSearch() {
 }
 
 /* --------------------------------------------------------------------------
-   3. STICKY PARA LA TARJETA "SOLICITA ACOMPAÑAMIENTO" EN ADMISIONES
+3. STICKY PARA LA TARJETA "SOLICITA ACOMPAÑAMIENTO" EN ADMISIONES
    -------------------------------------------------------------------------- */
 function ensureStickyAdmissionsCard() {
   const applySticky = () => {
-    const cards = document.querySelectorAll('.sidebar-card, aside');
+    const cards = document.querySelectorAll(".sidebar-card, aside");
     cards.forEach((card) => {
       if (window.innerWidth > 1024) {
-        card.style.position = 'sticky';
-        card.style.top = '96px';
-        card.style.alignSelf = 'start';
+        card.style.position = "sticky";
+        card.style.top = "96px";
+        card.style.alignSelf = "start";
       } else {
-        card.style.position = 'static';
+        card.style.position = "static";
       }
 
       const parent = card.parentElement;
-      if (parent && window.getComputedStyle(parent).display === 'grid') {
-        parent.style.alignItems = 'start';
+      if (parent && window.getComputedStyle(parent).display === "grid") {
+        parent.style.alignItems = "start";
       }
     });
   };
 
   applySticky();
-  window.addEventListener('resize', applySticky);
+  window.addEventListener("resize", applySticky);
 }
 
 /* --------------------------------------------------------------------------
-   4. FOOTER OFICIAL ESTILO PÁGINA PRINCIPAL EN TODAS LAS VISTAS
+4. FOOTER OFICIAL ESTILO PÁGINA PRINCIPAL EN TODAS LAS VISTAS
    -------------------------------------------------------------------------- */
 function ensureOfficialFooter() {
-  const footer = document.querySelector('footer');
+  const footer = document.querySelector("footer");
   if (!footer) return;
 
-  if (footer.querySelector('.footer-top-row')) {
-    const existingLogo = footer.querySelector('.footer-logo-left img');
+  if (footer.querySelector(".footer-top-row")) {
+    const existingLogo = footer.querySelector(".footer-logo-left img");
     if (existingLogo) {
-      existingLogo.src = 'assets/img/logo-nav-white.png';
+      existingLogo.src = "assets/img/logo-nav-white.png";
     }
     return;
   }
@@ -177,8 +195,8 @@ function ensureOfficialFooter() {
         <h4>Facultades</h4>
         <a href="facultad.html?id=arquitectura">Arquitectura, Arte y Diseño</a>
         <a href="facultad.html?id=economicas">Ciencias Económicas</a>
-        <a href="facultad.html?id=humanas">Ciencias Humanas y Sociales</a>
         <a href="facultad.html?id=derecho">Derecho y Ciencias Políticas</a>
+        <a href="facultad.html?id=humanas">Ciencias Humanas y Sociales</a>
         <a href="facultad.html?id=ingenieria">Ingeniería</a>
       </div>
 
@@ -225,32 +243,51 @@ function ensureOfficialFooter() {
 }
 
 /* --------------------------------------------------------------------------
-   5. PANEL DE BÚSQUEDA GLOBAL RÁPIDA (HEURÍSTICA 6 Y 9)
+5. PANEL DE BÚSQUEDA GLOBAL RÁPIDA (HEURÍSTICA 6 Y 9)
    -------------------------------------------------------------------------- */
 function initGlobalSearchPanel() {
-  const header = document.querySelector('header');
-  const toggleBtn = document.getElementById('toggle-global-search');
+  const header = document.querySelector("header");
+  const toggleBtn = document.getElementById("toggle-global-search");
   if (!header || !toggleBtn) return;
 
   const catalog = [
-    { area: 'Indicadores OLE', title: 'Impacto Real, Empleabilidad y Salarios OLE', url: 'impacto-real.html' },
-    { area: 'Ingeniería · Pregrado', title: 'Ingeniería Multimedia (Acreditación ABET)', url: 'ingenieria-multimedia.html' },
-    { area: 'Derecho · Pregrado', title: 'Derecho', url: 'derecho.html' },
-    { area: 'Ciencias Humanas · Pregrado', title: 'Psicología', url: 'psicologia.html' },
-    { area: 'Ciencias Económicas · Pregrado', title: 'Mercadeo y Negocios Internacionales', url: 'mercadco.html' },
-    { area: 'Facultad', title: 'Arquitectura, Arte y Diseño', url: 'facultad.html?id=arquitectura' },
-    { area: 'Facultad', title: 'Ciencias Económicas', url: 'facultad.html?id=economicas' },
-    { area: 'Facultad', title: 'Ciencias Humanas y Sociales', url: 'facultad.html?id=humanas' },
-    { area: 'Facultad', title: 'Derecho y Ciencias Políticas', url: 'facultad.html?id=derecho' },
-    { area: 'Facultad', title: 'Ingeniería', url: 'facultad.html?id=ingenieria' },
-    { area: 'Apoyo Financiero', title: 'Simulador de Becas Saber 11 (ICFES)', url: 'becas.html' },
-    { area: 'Apoyo Financiero', title: 'Convenios Institucionales y Cajas de Compensación', url: 'convenios.html' },
-    { area: 'Apoyo Financiero', title: 'Opciones de Financiación y Crédito Directo', url: 'financiacion.html' },
-    { area: 'Admisiones', title: 'Inscripciones Abiertas y Proceso de Admisión', url: 'admisiones.html' },
-    { area: 'Campus', title: 'Vida Universitaria y Bienestar Institucional', url: 'vida-universitaria.html' }
+    { area: "Indicadores OLE", title: "Impacto Real, Empleabilidad y Salarios OLE", url: "impacto-real.html" },
+    { area: "Ingeniería · Pregrado", title: "Ingeniería Multimedia (Acreditación ABET)", url: "ingenieria-multimedia.html" },
+    { area: "Derecho · Pregrado", title: "Derecho", url: "derecho.html" },
+    { area: "Ciencias Humanas · Pregrado", title: "Psicología", url: "psicologia.html" },
+    { area: "Ciencias Económicas · Pregrado", title: "Mercadeo y Negocios Internacionales", url: "mercadeo.html" },
+    { area: "Apoyo Financiero", title: "Simulador de Becas Saber 11 (ICFES)", url: "becas.html" },
+    { area: "Apoyo Financiero", title: "Convenios Institucionales y Cajas de Compensación", url: "convenios.html" },
+    { area: "Apoyo Financiero", title: "Opciones de Financiación y Crédito Directo", url: "financiacion.html" },
+    { area: "Admisiones", title: "Inscripciones Abiertas y Proceso de Admisión", url: "admisiones.html" },
+    { area: "Campus", title: "Vida Universitaria y Bienestar Institucional", url: "vida-universitaria.html" }
   ];
 
-  if (!document.getElementById('global-search-panel')) {
+  if (typeof facultiesCatalog !== "undefined" && Array.isArray(facultiesCatalog)) {
+    facultiesCatalog.forEach((fac) => {
+      catalog.push({
+        area: "Facultad · USB Cali",
+        title: fac.name,
+        url: `facultad.html?id=${encodeURIComponent(fac.id)}`
+      });
+      ["pregrado", "posgrado"].forEach((nivel) => {
+        (fac[nivel] || []).forEach((prog) => {
+          const url =
+            prog.url ||
+            (prog.curriculum || prog.metrics || prog.features
+              ? `programa.html?facultad=${encodeURIComponent(fac.id)}&programa=${encodeURIComponent(prog.id)}`
+              : `facultad.html?id=${encodeURIComponent(fac.id)}`);
+          catalog.push({
+            area: `${fac.shortName} · ${nivel === "pregrado" ? "Pregrado" : "Posgrado"}`,
+            title: prog.name,
+            url
+          });
+        });
+      });
+    });
+  }
+
+  if (!document.getElementById("global-search-panel")) {
     const panelHTML = `
       <div class="global-search-panel" id="global-search-panel" aria-hidden="true">
         <div class="global-search-inner">
@@ -259,31 +296,33 @@ function initGlobalSearchPanel() {
               <circle cx="11" cy="11" r="8"></circle>
               <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
             </svg>
-            <input type="text" id="global-search-input" placeholder="Buscar programa, facultad, empleabilidad OLE o beca...">
+            <input type="text" id="global-search-input" placeholder="Buscar carrera, posgrado, empleabilidad OLE o beca...">
             <button type="button" class="global-search-close" id="close-global-search" aria-label="Cerrar buscador">✕</button>
           </div>
           <div class="global-search-results" id="global-search-results"></div>
         </div>
       </div>
     `;
-    header.insertAdjacentHTML('afterend', panelHTML);
+    header.insertAdjacentHTML("afterend", panelHTML);
   }
 
-  const panel = document.getElementById('global-search-panel');
-  const closeBtn = document.getElementById('close-global-search');
-  const input = document.getElementById('global-search-input');
-  const resultsBox = document.getElementById('global-search-results');
+  const panel = document.getElementById("global-search-panel");
+  const closeBtn = document.getElementById("close-global-search");
+  const input = document.getElementById("global-search-input");
+  const resultsBox = document.getElementById("global-search-results");
 
   function renderResults(term) {
     const q = term.trim().toLowerCase();
-    const matches = q
-      ? catalog.filter((item) => item.title.toLowerCase().includes(q) || item.area.toLowerCase().includes(q))
-      : catalog.slice(0, 6);
+    const matches = (
+      q
+        ? catalog.filter((item) => item.title.toLowerCase().includes(q) || item.area.toLowerCase().includes(q))
+        : catalog.slice(0, 6)
+    ).slice(0, 8);
 
     if (matches.length === 0) {
       resultsBox.innerHTML = `
         <div class="global-search-empty">
-          No se encontraron resultados para <strong>"${term}"</strong>. Intenta con otra palabra clave (ej. Ingeniería, Empleabilidad, Becas) o explora <a href="facultades.html" style="color:#EF7D00;text-decoration:underline;">todas las facultades</a>.
+          No se encontraron resultados para <strong>"${term}"</strong>. Intenta con otra palabra clave (ej. Multimedia, Empleabilidad, Becas).
         </div>
       `;
       return;
@@ -298,46 +337,46 @@ function initGlobalSearchPanel() {
         </a>
       `
       )
-      .join('');
+      .join("");
   }
 
-  toggleBtn.addEventListener('click', () => {
-    const isOpen = panel.classList.contains('open');
+  toggleBtn.addEventListener("click", () => {
+    const isOpen = panel.classList.contains("open");
     if (isOpen) {
-      panel.classList.remove('open');
-      toggleBtn.classList.remove('active');
-      panel.setAttribute('aria-hidden', 'true');
+      panel.classList.remove("open");
+      toggleBtn.classList.remove("active");
+      panel.setAttribute("aria-hidden", "true");
     } else {
-      panel.classList.add('open');
-      toggleBtn.classList.add('active');
-      panel.setAttribute('aria-hidden', 'false');
-      input.value = '';
-      renderResults('');
+      panel.classList.add("open");
+      toggleBtn.classList.add("active");
+      panel.setAttribute("aria-hidden", "false");
+      input.value = "";
+      renderResults("");
       input.focus();
     }
   });
 
-  closeBtn.addEventListener('click', () => {
-    panel.classList.remove('open');
-    toggleBtn.classList.remove('active');
-    panel.setAttribute('aria-hidden', 'true');
+  closeBtn.addEventListener("click", () => {
+    panel.classList.remove("open");
+    toggleBtn.classList.remove("active");
+    panel.setAttribute("aria-hidden", "true");
   });
 
-  input.addEventListener('input', (e) => {
+  input.addEventListener("input", (e) => {
     renderResults(e.target.value);
   });
 }
 
 /* --------------------------------------------------------------------------
-   6. ASISTENTE VIRTUAL PACHITO & ESCALAMIENTO A ASESOR HUMANO - USB CALI
+6. ASISTENTE VIRTUAL PACHITO & ESCALAMIENTO A ASESOR HUMANO - USB CALI
    -------------------------------------------------------------------------- */
 function initPachitoChatbot() {
-  const widget = document.querySelector('.pachito-widget');
+  const widget = document.querySelector(".pachito-widget");
   if (!widget) return;
 
-  widget.removeAttribute('onclick');
+  widget.removeAttribute("onclick");
 
-  if (!document.getElementById('pachito-chat-window')) {
+  if (!document.getElementById("pachito-chat-window")) {
     const chatHTML = `
       <div class="pachito-chat-window" id="pachito-chat-window" aria-hidden="true">
         <div class="pachito-chat-header" id="pachito-chat-header">
@@ -375,105 +414,54 @@ function initPachitoChatbot() {
         </form>
       </div>
     `;
-    document.body.insertAdjacentHTML('beforeend', chatHTML);
+    document.body.insertAdjacentHTML("beforeend", chatHTML);
   }
 
-  const chatWindow = document.getElementById('pachito-chat-window');
-  const closeBtn = document.getElementById('pachito-close-btn');
-  const chatBody = document.getElementById('pachito-chat-body');
-  const chatForm = document.getElementById('pachito-chat-form');
-  const chatInput = document.getElementById('pachito-input');
-  const btnUnresolved = document.getElementById('btn-unresolved');
-  const escalateBar = document.getElementById('pachito-escalate-bar');
+  const chatWindow = document.getElementById("pachito-chat-window");
+  const closeBtn = document.getElementById("pachito-close-btn");
+  const chatBody = document.getElementById("pachito-chat-body");
+  const chatForm = document.getElementById("pachito-chat-form");
+  const chatInput = document.getElementById("pachito-input");
+  const escalateBar = document.getElementById("pachito-escalate-bar");
 
   let humanConnected = false;
   let assignedAgent = null;
 
   const agentsByTopic = {
     becas: {
-      name: 'Laura Gómez',
-      role: 'Asesora de Servicios Financieros y Becas',
-      ext: 'Ext. 4120 · servicios_financieros@usbcali.edu.co',
-      initials: 'LG'
+      name: "Laura Gómez",
+      role: "Asesora de Servicios Financieros y Becas",
+      ext: "Ext. 4120 · servicios_financieros@usbcali.edu.co",
+      initials: "LG"
     },
     convenios: {
-      name: 'Andrea Ríos',
-      role: 'Coordinadora de Convenios y Alianzas',
-      ext: 'Ext. 4185 · convenios@usbcali.edu.co',
-      initials: 'AR'
+      name: "Andrea Ríos",
+      role: "Coordinadora de Convenios y Alianzas",
+      ext: "Ext. 4185 · convenios@usbcali.edu.co",
+      initials: "AR"
     },
     admisiones: {
-      name: 'Carlos Méndez',
-      role: 'Asesor de Admisiones y Mercadeo',
-      ext: 'Ext. 4050 · admisiones@usbcali.edu.co',
-      initials: 'CM'
+      name: "Carlos Méndez",
+      role: "Asesor de Admisiones y Mercadeo",
+      ext: "Ext. 4050 · admisiones@usbcali.edu.co",
+      initials: "CM"
     },
     asis: {
-      name: 'Julián Torres',
-      role: 'Soporte Registro Académico y ASIS',
-      ext: 'Ext. 4210 · registro@usbcali.edu.co',
-      initials: 'JT'
+      name: "Julián Torres",
+      role: "Soporte Registro Académico y ASIS",
+      ext: "Ext. 4210 · registro@usbcali.edu.co",
+      initials: "JT"
     },
     general: {
-      name: 'Mariana Salcedo',
-      role: 'Atención Integral al Estudiante USB',
-      ext: 'PBX (602) 488 2222 · informacion@usbcali.edu.co',
-      initials: 'MS'
+      name: "Mariana Salcedo",
+      role: "Atención Integral al Estudiante USB",
+      ext: "PBX (602) 488 2222 · informacion@usbcali.edu.co",
+      initials: "MS"
     }
   };
 
-  widget.addEventListener('click', () => {
-    const isOpen = chatWindow.classList.contains('open');
-    if (isOpen) {
-      chatWindow.classList.remove('open');
-      chatWindow.setAttribute('aria-hidden', 'true');
-    } else {
-      chatWindow.classList.add('open');
-      chatWindow.setAttribute('aria-hidden', 'false');
-      chatInput.focus();
-    }
-  });
-
-  closeBtn.addEventListener('click', () => {
-    chatWindow.classList.remove('open');
-    chatWindow.setAttribute('aria-hidden', 'true');
-  });
-
-  chatBody.addEventListener('click', (e) => {
-    if (e.target.classList.contains('quick-reply-btn')) {
-      const topic = e.target.getAttribute('data-topic');
-      const label = e.target.textContent;
-      appendMessage(label, 'user');
-      respondAsBot(topic);
-    }
-
-    if (e.target.classList.contains('agent-select-btn')) {
-      const selectedArea = e.target.getAttribute('data-area');
-      connectToHumanAgent(selectedArea);
-    }
-  });
-
-  chatForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const text = chatInput.value.trim();
-    if (!text) return;
-
-    appendMessage(text, 'user');
-    chatInput.value = '';
-
-    if (humanConnected) {
-      respondAsHuman();
-    } else {
-      const detected = detectTopic(text);
-      respondAsBot(detected);
-    }
-  });
-
-  btnUnresolved.addEventListener('click', () => {
-    if (humanConnected) return;
-
-    appendMessage('No se resolvió el problema', 'user');
-
+  function promptAreaSelection() {
+    appendMessage("No se resolvió el problema", "user");
     setTimeout(() => {
       appendMessage(
         `Entiendo, vamos a conectarte de inmediato con una <strong>persona encargada</strong>. Confírmame el área de tu solicitud para asignarte al especialista:<br>
@@ -483,35 +471,90 @@ function initPachitoChatbot() {
           <button type="button" class="agent-select-btn" data-area="convenios">Convenios</button>
           <button type="button" class="agent-select-btn" data-area="asis">ASIS / Registro</button>
         </div>`,
-        'bot'
+        "bot"
       );
     }, 350);
+  }
+
+  widget.addEventListener("click", () => {
+    const isOpen = chatWindow.classList.contains("open");
+    if (isOpen) {
+      chatWindow.classList.remove("open");
+      chatWindow.setAttribute("aria-hidden", "true");
+    } else {
+      chatWindow.classList.add("open");
+      chatWindow.setAttribute("aria-hidden", "false");
+      chatInput.focus();
+    }
+  });
+
+  closeBtn.addEventListener("click", () => {
+    chatWindow.classList.remove("open");
+    chatWindow.setAttribute("aria-hidden", "true");
+  });
+
+  chatBody.addEventListener("click", (e) => {
+    if (e.target.classList.contains("quick-reply-btn")) {
+      const topic = e.target.getAttribute("data-topic");
+      const label = e.target.textContent;
+      appendMessage(label, "user");
+      respondAsBot(topic);
+    }
+
+    if (e.target.classList.contains("agent-select-btn")) {
+      const selectedArea = e.target.getAttribute("data-area");
+      connectToHumanAgent(selectedArea);
+    }
+  });
+
+  escalateBar.addEventListener("click", (e) => {
+    if (e.target.closest("#btn-unresolved") && !humanConnected) {
+      promptAreaSelection();
+    } else if (e.target.closest("#btn-reset-bot")) {
+      resetToBot();
+    }
+  });
+
+  chatForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const text = chatInput.value.trim();
+    if (!text) return;
+
+    appendMessage(text, "user");
+    chatInput.value = "";
+
+    if (humanConnected) {
+      respondAsHuman();
+    } else {
+      const detected = detectTopic(text);
+      respondAsBot(detected);
+    }
   });
 
   function detectTopic(text) {
     const t = text.toLowerCase();
-    if (t.includes('beca') || t.includes('icfes') || t.includes('financ') || t.includes('icetex') || t.includes('pag') || t.includes('matr')) return 'becas';
-    if (t.includes('convenio') || t.includes('comfandi') || t.includes('comfenalco') || t.includes('descuento')) return 'convenios';
-    if (t.includes('asis') || t.includes('certificado') || t.includes('nota') || t.includes('correo') || t.includes('clave')) return 'asis';
-    if (t.includes('carrera') || t.includes('inscrip') || t.includes('facultad') || t.includes('ingenier') || t.includes('derecho') || t.includes('psicolog')) return 'admisiones';
-    return 'general';
+    if (t.includes("beca") || t.includes("icfes") || t.includes("financ") || t.includes("icetex") || t.includes("pag") || t.includes("matr")) return "becas";
+    if (t.includes("convenio") || t.includes("comfandi") || t.includes("comfenalco") || t.includes("descuento")) return "convenios";
+    if (t.includes("asis") || t.includes("certificado") || t.includes("nota") || t.includes("correo") || t.includes("clave")) return "asis";
+    if (t.includes("carrera") || t.includes("inscrip") || t.includes("facultad") || t.includes("ingenier") || t.includes("derecho") || t.includes("psicolog")) return "admisiones";
+    return "general";
   }
 
   function respondAsBot(topic) {
     setTimeout(() => {
-      let reply = '';
-      if (topic === 'becas') {
+      let reply = "";
+      if (topic === "becas") {
         reply = `Sobre <strong>Becas y Financiación</strong>: tenemos becas ICFES del 20% al 50% y crédito directo USB. Recuerda que las renovaciones se solicitan a <strong>servicios_financieros@usbcali.edu.co</strong>.<br><a href="becas.html" style="color:#EF7D00;font-weight:700;">Ver sección de Becas →</a>`;
-      } else if (topic === 'convenios') {
+      } else if (topic === "convenios") {
         reply = `Contamos con descuentos del <strong>10% al 15%</strong> por convenios con Comfandi, Comfenalco, colegios aliados y fuerzas militares.<br><a href="convenios.html" style="color:#EF7D00;font-weight:700;">Ver Convenios →</a>`;
-      } else if (topic === 'admisiones') {
+      } else if (topic === "admisiones") {
         reply = `Tenemos 5 facultades acreditadas en Alta Calidad y una tasa de empleabilidad del 88.5%.<br><a href="impacto-real.html" style="color:#EF7D00;font-weight:700;">Ver cifras OLE →</a>`;
-      } else if (topic === 'asis') {
+      } else if (topic === "asis") {
         reply = `Para ingreso a <strong>ASIS Autoservicio</strong> usa tu usuario institucional sin @correo.usbcali.edu.co. Si tu cuenta está bloqueada, te recomiendo escalar con un asesor.`;
       } else {
         reply = `Puedo orientarte sobre <strong>Becas</strong>, <strong>Convenios</strong>, <strong>Empleabilidad OLE</strong> o <strong>Admisiones</strong>. Si tu caso requiere revisión personalizada, presiona el botón naranja de abajo.`;
       }
-      appendMessage(reply, 'bot');
+      appendMessage(reply, "bot");
     }, 400);
   }
 
@@ -519,13 +562,13 @@ function initPachitoChatbot() {
     humanConnected = true;
     assignedAgent = agentsByTopic[area] || agentsByTopic.general;
 
-    const header = document.getElementById('pachito-chat-header');
-    const avatar = document.getElementById('pachito-header-avatar');
-    const agentName = document.getElementById('pachito-agent-name');
-    const agentStatus = document.getElementById('pachito-agent-status');
+    const header = document.getElementById("pachito-chat-header");
+    const avatar = document.getElementById("pachito-header-avatar");
+    const agentName = document.getElementById("pachito-agent-name");
+    const agentStatus = document.getElementById("pachito-agent-status");
 
-    header.classList.add('human-mode');
-    avatar.style.backgroundImage = 'none';
+    header.classList.add("human-mode");
+    avatar.style.backgroundImage = "none";
     avatar.textContent = assignedAgent.initials;
     agentName.textContent = assignedAgent.name;
     agentStatus.textContent = `● ${assignedAgent.role}`;
@@ -535,14 +578,12 @@ function initPachitoChatbot() {
       <button type="button" class="btn-reset-bot" id="btn-reset-bot">Volver a Pachito</button>
     `;
 
-    document.getElementById('btn-reset-bot').addEventListener('click', resetToBot);
-
-    appendMessage(`Transfiriendo tu chat con <strong>${assignedAgent.name}</strong> (${assignedAgent.role})...`, 'system');
+    appendMessage(`Transfiriendo tu chat con <strong>${assignedAgent.name}</strong> (${assignedAgent.role})...`, "system");
 
     setTimeout(() => {
       appendMessage(
         `¡Hola! Soy <strong>${assignedAgent.name}</strong>, ${assignedAgent.role} de la USB Cali. Ya recibí el historial de tu consulta. Cuéntame tu nombre completo, programa y el detalle de tu caso para gestionarlo ahora mismo.`,
-        'human'
+        "human"
       );
       chatInput.placeholder = `Escribe tu mensaje para ${assignedAgent.name}...`;
       chatInput.focus();
@@ -554,7 +595,7 @@ function initPachitoChatbot() {
     setTimeout(() => {
       appendMessage(
         `¡Gracias por la información! He registrado tu caso bajo el radicado <strong>#${radicado}</strong> (${assignedAgent.ext}). En breve recibirás respuesta en tu correo o WhatsApp. ¿Deseas agregar algún dato adicional?`,
-        'human'
+        "human"
       );
     }, 650);
   }
@@ -563,42 +604,29 @@ function initPachitoChatbot() {
     humanConnected = false;
     assignedAgent = null;
 
-    const header = document.getElementById('pachito-chat-header');
-    const avatar = document.getElementById('pachito-header-avatar');
-    const agentName = document.getElementById('pachito-agent-name');
-    const agentStatus = document.getElementById('pachito-agent-status');
+    const header = document.getElementById("pachito-chat-header");
+    const avatar = document.getElementById("pachito-header-avatar");
+    const agentName = document.getElementById("pachito-agent-name");
+    const agentStatus = document.getElementById("pachito-agent-status");
 
-    header.classList.remove('human-mode');
+    header.classList.remove("human-mode");
     avatar.style.backgroundImage = "url('assets/img/pachito.jpg')";
-    avatar.textContent = '';
-    agentName.textContent = 'Pachito USB';
-    agentStatus.textContent = '● Asistente Virtual en línea';
-    chatInput.placeholder = 'Escribe tu consulta aquí...';
+    avatar.textContent = "";
+    agentName.textContent = "Pachito USB";
+    agentStatus.textContent = "● Asistente Virtual en línea";
+    chatInput.placeholder = "Escribe tu consulta aquí...";
 
     escalateBar.innerHTML = `
       <button type="button" class="btn-unresolved" id="btn-unresolved">
         No se resolvió el problema — Hablar con un encargado
       </button>
     `;
-    document.getElementById('btn-unresolved').addEventListener('click', () => {
-      appendMessage('No se resolvió el problema', 'user');
-      appendMessage(
-        `Selecciona el área encargada para conectarte:<br>
-        <div class="chat-quick-replies" style="margin-top: 8px;">
-          <button type="button" class="agent-select-btn" data-area="becas">Becas / Financiación</button>
-          <button type="button" class="agent-select-btn" data-area="admisiones">Admisiones / Carreras</button>
-          <button type="button" class="agent-select-btn" data-area="convenios">Convenios</button>
-          <button type="button" class="agent-select-btn" data-area="asis">ASIS / Registro</button>
-        </div>`,
-        'bot'
-      );
-    });
 
-    appendMessage('Has regresado con <strong>Pachito USB</strong>. ¿En qué más te puedo ayudar?', 'system');
+    appendMessage("Has regresado con <strong>Pachito USB</strong>. ¿En qué más te puedo ayudar?", "system");
   }
 
   function appendMessage(html, sender) {
-    const msg = document.createElement('div');
+    const msg = document.createElement("div");
     msg.className = `chat-msg ${sender}`;
     msg.innerHTML = html;
     chatBody.appendChild(msg);

@@ -1,9 +1,22 @@
 const facultiesCatalog = [
   {
     id: "arquitectura",
+    slug: "arquitectura-arte-y-diseno",
     shortName: "Arquitectura, Arte y Diseño",
     name: "Facultad de Arquitectura, Arte y Diseño",
     color: "#D9531E",
+    officialUrl: "https://usbcali.edu.co/facultad/arquitectura-arte-y-diseno/",
+    dean: {
+      role: "Decana",
+      name: "Marcela Esther Falla Gutiérrez",
+      email: "mefalla@usbcali.edu.co",
+      photo: "assets/img/marcela-falla-decana1.png"
+    },
+    spaces: [
+      "Laboratorio de Cocina",
+      "Edificio Horizontes",
+      "Taller de Máquinas"
+    ],
     description: "Formación creativa, proyectual y sostenible orientada al diseño arquitectónico, el hábitat urbano, el vestuario y la innovación espacial.",
     pregrado: [
       {
@@ -318,9 +331,20 @@ const facultiesCatalog = [
   },
   {
     id: "economicas",
+    slug: "ciencias-economicas",
     shortName: "Ciencias Económicas",
     name: "Facultad de Ciencias Económicas",
     color: "#008751",
+    officialUrl: "https://usbcali.edu.co/facultad/ciencias-economicas/",
+    dean: {
+      role: "Decano",
+      name: "Julián Mauricio Gómez López",
+      email: "decano.cienciaseconomicas@usbcali.edu.co",
+      photo: "assets/img/julian-mauricio-gomez-lopez.jpg"
+    },
+    spaces: [
+      "CEDEM (Centro de Desarrollo Empresarial)"
+    ],
     description: "Liderazgo empresarial, analítica de mercados globales, finanzas corporativas y gestión estratégica para organizaciones competitivas.",
     pregrado: [
       {
@@ -671,9 +695,22 @@ const facultiesCatalog = [
   },
   {
     id: "humanas",
+    slug: "ciencias-humanas-y-sociales",
     shortName: "Ciencias Humanas y Sociales",
     name: "Facultad de Ciencias Humanas y Sociales",
     color: "#00829B",
+    officialUrl: "https://usbcali.edu.co/facultad/ciencias-humanas-y-sociales/",
+    dean: {
+      role: "Decana",
+      name: "Gloria Mercedes Sánchez Cifuentes",
+      email: "decano.cienciashumanasysociales@usbcali.edu.co",
+      photo: "assets/img/gloria-mercedes-decana-facultad-ciencias-humanas-y-sociales.jpg"
+    },
+    spaces: [
+      "Centro de Atención en Salud Mental USB OSD",
+      "Laboratorio de Psicología",
+      "Centro de Estudios Olímpicos y Paralímpicos"
+    ],
     description: "Comprensión integral del ser humano, la salud mental, la educación transformadora y el desarrollo comunitario con sentido franciscano.",
     pregrado: [
       {
@@ -887,9 +924,23 @@ const facultiesCatalog = [
   },
   {
     id: "derecho",
+    slug: "derecho-y-ciencias-politicas",
     shortName: "Derecho y Ciencias Políticas",
     name: "Facultad de Derecho y Ciencias Políticas",
     color: "#EF7D00",
+    officialUrl: "https://usbcali.edu.co/facultad/derecho-y-ciencias-politicas/",
+    dean: {
+      role: "Decana",
+      name: "Luisa Fernanda Hurtado Castrillón",
+      email: "decano.derecho@adm.usbcali.edu.co",
+      photo: "assets/img/DecanaLuisaFernanda.png"
+    },
+    spaces: [
+      "Sala de Audiencia",
+      "Consultorio Jurídico",
+      "Centro de Conciliación Académico",
+      "Centro de Conciliación, Arbitraje y Amigable Composición"
+    ],
     description: "Formación jurídica con compromiso ético y social, litigio oral, resolución alternativa de conflictos y análisis de políticas públicas.",
     pregrado: [
       {
@@ -1145,9 +1196,31 @@ const facultiesCatalog = [
   },
   {
     id: "ingenieria",
+    slug: "ingenieria",
     shortName: "Ingeniería",
     name: "Facultad de Ingeniería",
     color: "#7A1C79",
+    officialUrl: "https://usbcali.edu.co/facultad/ingenieria/",
+    dean: {
+      role: "Decana",
+      name: "Maribel Amu Bolaños",
+      email: "decano.ingenieria@usbcali.edu.co",
+      photo: "assets/img/maribel-amu-bolanos-decana-facultad-ingenieria-2.png"
+    },
+    spaces: [
+      "Hack Space",
+      "Sala de Prototipado",
+      "Laboratorio de Sonido",
+      "Unidad Productiva",
+      "Laboratorio de Operaciones Unitarias",
+      "Laboratorio de Microbiología",
+      "Laboratorio de Química",
+      "Laboratorio Multipropósitos",
+      "Laboratorio de Investigaciones",
+      "Planta Piloto",
+      "Laboratorio de Experiencias Inmersivas",
+      "Laboratorio de Postproducción de Sonido"
+    ],
     description: "Innovación tecnológica, desarrollo de software, medios interactivos, automatización e inteligencia artificial con estándares internacionales.",
     pregrado: [
       {

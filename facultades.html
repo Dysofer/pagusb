@@ -3,48 +3,67 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Facultades - Pregrado y Posgrado | USB Cali</title>
+  <title>Facultades y Programas | Universidad de San Buenaventura Cali</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css">
+  <style>
+    #facultades-level-filter .level-pill {
+      background: #FFFFFF;
+      color: #1D1D1B;
+      border: 1px solid #CBD5E1;
+      border-radius: 999px;
+      padding: 9px 16px;
+      font-family: inherit;
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+
+    #facultades-level-filter .level-pill:hover {
+      border-color: #1D1D1B;
+    }
+
+    #facultades-level-filter .level-pill.active {
+      background: #EF7D00;
+      color: #FFFFFF;
+      border-color: #EF7D00;
+    }
+  </style>
 </head>
 <body>
-
-  <!-- TOP BAR -->
   <div class="top-bar">
     <div class="top-bar-container">
       <ul class="top-bar-group">
         <li><strong style="color: #FFF;">Portales:</strong></li>
-        <li><a href="https://usbcali.edu.co/programas/?Sfacultad=all&Stipo_programa=pregrado&search=" target="_blank">Aspirantes</a></li>
-        <li><a href="https://usbcali.edu.co/estudiantes/" target="_blank">Estudiantes</a></li>
-        <li><a href="https://usbcali.edu.co/egresados/" target="_blank">Egresados</a></li>
+        <li><a href="https://usbcali.edu.co/programas/?Sfacultad=all&Stipo_programa=pregrado&search=" target="_blank" rel="noopener">Aspirantes</a></li>
+        <li><a href="https://usbcali.edu.co/estudiantes/" target="_blank" rel="noopener">Estudiantes</a></li>
+        <li><a href="https://usbcali.edu.co/egresados/" target="_blank" rel="noopener">Egresados</a></li>
       </ul>
 
       <ul class="top-bar-group">
-        <li><a href="https://campus.usbco.edu.co/psp/USCS90PR/?cmd=login&languageCd=ESP&" target="_blank" class="top-bar-badge">ASIS (Autoservicio)</a></li>
-        <li><a href="https://aulasvirtuales.usbcali.edu.co/" target="_blank">Campus Virtual</a></li>
-        
+        <li><a href="https://campus.usbco.edu.co/psp/USCS90PR/?cmd=login&languageCd=ESP&" target="_blank" rel="noopener" class="top-bar-badge">ASIS (Autoservicio)</a></li>
+        <li><a href="https://aulasvirtuales.usbcali.edu.co/" target="_blank" rel="noopener">Campus Virtual</a></li>
         <li class="top-bar-dropdown">
           <button type="button" class="top-bar-dropdown-btn" aria-haspopup="true">
             Correo Institucional ▾
           </button>
           <ul class="top-bar-dropdown-menu">
-            <li><a href="https://login.microsoftonline.com/" target="_blank">Correo Administrativo</a></li>
-            <li><a href="https://mail.google.com/a/correo.usbcali.edu.co" target="_blank">Correo Estudiantes</a></li>
+            <li><a href="https://login.microsoftonline.com/" target="_blank" rel="noopener">Correo Administrativo</a></li>
+            <li><a href="https://mail.google.com/a/correo.usbcali.edu.co" target="_blank" rel="noopener">Correo Estudiantes</a></li>
           </ul>
         </li>
-
-        <li><a href="https://usbcali.edu.co/biblioteca/" target="_blank">Biblioteca</a></li>
+        <li><a href="https://usbcali.edu.co/biblioteca/" target="_blank" rel="noopener">Biblioteca</a></li>
       </ul>
     </div>
   </div>
 
-  <!-- HEADER -->
   <header>
     <div class="header-container">
       <a href="index.html"><img src="assets/img/logo-nav-dark.png" alt="USB Cali" class="logo-img"></a>
-      <nav>
+      <nav aria-label="Navegación principal">
         <ul>
           <li class="nav-dropdown">
             <a href="becas.html" class="nav-dropdown-btn">Apoyo Financiero ▾</a>
@@ -54,7 +73,7 @@
               <li><a href="financiacion.html">Opciones de Financiación</a></li>
             </ul>
           </li>
-          <li><a href="index.html#impacto">Impacto Real</a></li>
+          <li><a href="impacto-real.html">Impacto Real</a></li>
           <li><a href="facultades.html" class="active">Facultades</a></li>
           <li><a href="vida-universitaria.html">Vida Universitaria</a></li>
           <li><a href="admisiones.html">Admisiones</a></li>
@@ -64,426 +83,203 @@
     </div>
   </header>
 
-  <!-- HERO FACULTADES -->
-  <section class="hero-main" style="padding: 64px 32px;">
+  <section class="hero-main" style="background: linear-gradient(135deg, #1D1D1B 0%, #111110 100%); padding: 64px 32px;">
     <div class="hero-container">
-      <span style="display: inline-block; background: rgba(239, 125, 0, 0.2); color: #F8AB15; padding: 5px 14px; border-radius: 20px; font-size: 0.78rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 14px;">Oferta Académica Acreditada</span>
-      <h1>Nuestras Facultades y Escuelas</h1>
-      <p style="margin-bottom: 0;">Explora nuestras 5 facultades académicas y accede al plan de estudios completo de cada programa de <strong>Pregrado</strong> y <strong>Posgrado</strong>.</p>
-
-      <div class="faculty-filter-bar">
-        <div class="level-filter-pills" role="group" aria-label="Filtrar por nivel académico">
-          <button type="button" class="level-pill active" data-level="all">Todos los Niveles</button>
-          <button type="button" class="level-pill" data-level="pregrado">Pregrado</button>
-          <button type="button" class="level-pill" data-level="posgrado">Posgrado</button>
-        </div>
-        <input type="text" id="faculty-search-input" placeholder="Buscar facultad o programa (ej. Multimedia, Derecho, Maestría)...">
-      </div>
+      <span class="hero-eyebrow" style="display: table; margin: 0 auto 14px;">Oferta Académica · USB Cali</span>
+      <h1>Facultades y Programas</h1>
+      <p>Explora nuestras 5 facultades, decanaturas, espacios de aprendizaje y programas de pregrado y posgrado.</p>
     </div>
   </section>
 
-  <!-- DIRECTORIO DE FACULTADES -->
-  <main class="programs-section" id="directorio-facultades">
+  <main class="programs-section">
+    <div class="faculty-filter-bar" style="justify-content: space-between; margin-top: 0; margin-bottom: 28px; flex-wrap: wrap; gap: 16px;">
+      <input
+        type="text"
+        id="facultades-filter-input"
+        placeholder="Buscar facultad, decano o programa (ej. Multimedia, Sistemas, Derecho, Maestría)..."
+        style="flex: 1; min-width: 260px; padding: 12px 16px; border: 1px solid #CBD5E1; border-radius: 10px; background: #FFFFFF; color: #1D1D1B; font-family: inherit; font-size: 0.95rem;"
+      >
+      <div class="level-filter-pills" id="facultades-level-filter" style="display: flex; gap: 8px; flex-wrap: wrap;">
+        <button type="button" class="level-pill active" data-level="Todos">Todos</button>
+        <button type="button" class="level-pill" data-level="pregrado">Pregrado</button>
+        <button type="button" class="level-pill" data-level="posgrado">Posgrado</button>
+      </div>
+    </div>
 
-    <!-- 1. ARQUITECTURA, ARTE Y DISEÑO -->
-    <article class="faculty-directory-card" data-faculty="arquitectura" style="border-top: 5px solid #D9531E;">
-      <div class="faculty-dir-header">
-        <div>
-          <span class="faculty-dir-badge" style="background: #FFF0EA; color: #D9531E;">Facultad Oficial USB Cali</span>
-          <h2>Facultad de Arquitectura, Arte y Diseño</h2>
-          <p>Formación creativa, proyectual y sostenible orientada al diseño arquitectónico, el hábitat urbano, el vestuario y la innovación espacial.</p>
-        </div>
-        <a href="facultad.html?id=arquitectura" class="btn-primary" style="background-color: #D9531E;">Ver Facultad Completa →</a>
-      </div>
-      <div class="faculty-dir-columns">
-        <div class="faculty-level-group" data-group-level="pregrado">
-          <h4>Pregrado (2)</h4>
-          <ul class="faculty-program-list">
-            <li data-search="arquitectura pregrado">
-              <div>
-                <strong>Arquitectura</strong>
-                <span>SNIES: 1105 · 10 Semestres · Presencial / Diurna</span>
-              </div>
-              <a href="facultad.html?id=arquitectura&prog=arquitectura" class="prog-mini-link" style="color: #D9531E;">Ver Programa →</a>
-            </li>
-            <li data-search="diseño de vestuario pregrado">
-              <div>
-                <strong>Diseño de Vestuario</strong>
-                <span>SNIES: 102488 · 8 Semestres · Presencial / Diurna</span>
-              </div>
-              <a href="facultad.html?id=arquitectura&prog=vestuario" class="prog-mini-link" style="color: #D9531E;">Ver Programa →</a>
-            </li>
-          </ul>
-        </div>
-        <div class="faculty-level-group" data-group-level="posgrado">
-          <h4>Posgrado (2)</h4>
-          <ul class="faculty-program-list">
-            <li data-search="maestria en arquitectura y urbanismo posgrado">
-              <div>
-                <strong>Maestría en Arquitectura y Urbanismo</strong>
-                <span>SNIES: 102945 · Maestría · 4 Semestres</span>
-              </div>
-              <a href="facultad.html?id=arquitectura&prog=maestria-arquitectura" class="prog-mini-link" style="color: #D9531E;">Ver Programa →</a>
-            </li>
-            <li data-search="especializacion en gestion ambiental sostenible posgrado">
-              <div>
-                <strong>Especialización en Gestión Ambiental Sostenible</strong>
-                <span>SNIES: 104312 · Especialización · 2 Semestres</span>
-              </div>
-              <a href="facultad.html?id=arquitectura&prog=esp-ambiental" class="prog-mini-link" style="color: #D9531E;">Ver Programa →</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </article>
-
-    <!-- 2. CIENCIAS ECONÓMICAS -->
-    <article class="faculty-directory-card" data-faculty="economicas" style="border-top: 5px solid #008751;">
-      <div class="faculty-dir-header">
-        <div>
-          <span class="faculty-dir-badge" style="background: #E6F6EF; color: #008751;">Facultad Oficial USB Cali</span>
-          <h2>Facultad de Ciencias Económicas</h2>
-          <p>Liderazgo empresarial, finanzas corporativas, comercio exterior y estrategia de mercados globales con enfoque en emprendimiento.</p>
-        </div>
-        <a href="facultad.html?id=economicas" class="btn-primary" style="background-color: #008751;">Ver Facultad Completa →</a>
-      </div>
-      <div class="faculty-dir-columns">
-        <div class="faculty-level-group" data-group-level="pregrado">
-          <h4>Pregrado (4)</h4>
-          <ul class="faculty-program-list">
-            <li data-search="mercadeo y negocios internacionales pregrado">
-              <div>
-                <strong>Mercadeo y Negocios Internacionales</strong>
-                <span>SNIES: 53112 · 9 Semestres · Presencial / Diurna</span>
-              </div>
-              <a href="facultad.html?id=economicas&prog=mercadeo" class="prog-mini-link" style="color: #008751;">Ver Programa →</a>
-            </li>
-            <li data-search="administracion de empresas pregrado">
-              <div>
-                <strong>Administración de Empresas</strong>
-                <span>SNIES: 1104 · 9 Semestres · Presencial / Diurna y Nocturna</span>
-              </div>
-              <a href="facultad.html?id=economicas&prog=administracion" class="prog-mini-link" style="color: #008751;">Ver Programa →</a>
-            </li>
-            <li data-search="contaduria publica pregrado">
-              <div>
-                <strong>Contaduría Pública</strong>
-                <span>SNIES: 1106 · 9 Semestres · Presencial / Nocturna</span>
-              </div>
-              <a href="facultad.html?id=economicas&prog=contaduria" class="prog-mini-link" style="color: #008751;">Ver Programa →</a>
-            </li>
-            <li data-search="economia pregrado">
-              <div>
-                <strong>Economía</strong>
-                <span>SNIES: 1107 · 8 Semestres · Presencial / Diurna</span>
-              </div>
-              <a href="facultad.html?id=economicas&prog=economia" class="prog-mini-link" style="color: #008751;">Ver Programa →</a>
-            </li>
-          </ul>
-        </div>
-        <div class="faculty-level-group" data-group-level="posgrado">
-          <h4>Posgrado (2)</h4>
-          <ul class="faculty-program-list">
-            <li data-search="maestria en alta direccion empresarial mba posgrado">
-              <div>
-                <strong>Maestría en Alta Dirección Empresarial (MBA)</strong>
-                <span>SNIES: 105410 · Maestría · 4 Semestres</span>
-              </div>
-              <a href="facultad.html?id=economicas&prog=mba" class="prog-mini-link" style="color: #008751;">Ver Programa →</a>
-            </li>
-            <li data-search="especializacion en finanzas corporativas posgrado">
-              <div>
-                <strong>Especialización en Finanzas Corporativas</strong>
-                <span>SNIES: 101890 · Especialización · 2 Semestres</span>
-              </div>
-              <a href="facultad.html?id=economicas&prog=esp-finanzas" class="prog-mini-link" style="color: #008751;">Ver Programa →</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </article>
-
-    <!-- 3. CIENCIAS HUMANAS Y SOCIALES -->
-    <article class="faculty-directory-card" data-faculty="humanas" style="border-top: 5px solid #00829B;">
-      <div class="faculty-dir-header">
-        <div>
-          <span class="faculty-dir-badge" style="background: #E6F6F9; color: #00829B;">Facultad Oficial USB Cali</span>
-          <h2>Facultad de Ciencias Humanas y Sociales</h2>
-          <p>Comprensión integral del ser humano, la salud mental, la pedagogía contemporánea y la transformación social desde el humanismo franciscano.</p>
-        </div>
-        <a href="facultad.html?id=humanas" class="btn-primary" style="background-color: #00829B;">Ver Facultad Completa →</a>
-      </div>
-      <div class="faculty-dir-columns">
-        <div class="faculty-level-group" data-group-level="pregrado">
-          <h4>Pregrado (3)</h4>
-          <ul class="faculty-program-list">
-            <li data-search="psicologia pregrado">
-              <div>
-                <strong>Psicología</strong>
-                <span>SNIES: 1110 · 10 Semestres · Presencial / Diurna</span>
-              </div>
-              <a href="facultad.html?id=humanas&prog=psicologia" class="prog-mini-link" style="color: #00829B;">Ver Programa →</a>
-            </li>
-            <li data-search="licenciatura en educacion infantil pregrado">
-              <div>
-                <strong>Licenciatura en Educación Infantil</strong>
-                <span>SNIES: 106120 · 8 Semestres · Presencial / Diurna</span>
-              </div>
-              <a href="facultad.html?id=humanas&prog=educacion-infantil" class="prog-mini-link" style="color: #00829B;">Ver Programa →</a>
-            </li>
-            <li data-search="licenciatura en lenguas extranjeras ingles pregrado">
-              <div>
-                <strong>Licenciatura en Lenguas Extranjeras (Inglés)</strong>
-                <span>SNIES: 107240 · 8 Semestres · Presencial / Diurna</span>
-              </div>
-              <a href="facultad.html?id=humanas&prog=lenguas" class="prog-mini-link" style="color: #00829B;">Ver Programa →</a>
-            </li>
-          </ul>
-        </div>
-        <div class="faculty-level-group" data-group-level="posgrado">
-          <h4>Posgrado (2)</h4>
-          <ul class="faculty-program-list">
-            <li data-search="maestria en psicologia clinica y de la salud posgrado">
-              <div>
-                <strong>Maestría en Psicología Clínica y de la Salud</strong>
-                <span>SNIES: 103820 · Maestría · 4 Semestres</span>
-              </div>
-              <a href="facultad.html?id=humanas&prog=maestria-psicologia" class="prog-mini-link" style="color: #00829B;">Ver Programa →</a>
-            </li>
-            <li data-search="maestria en educacion y desarrollo humano posgrado">
-              <div>
-                <strong>Maestría en Educación y Desarrollo Humano</strong>
-                <span>SNIES: 54210 · Maestría · 4 Semestres</span>
-              </div>
-              <a href="facultad.html?id=humanas&prog=maestria-educacion" class="prog-mini-link" style="color: #00829B;">Ver Programa →</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </article>
-
-    <!-- 4. DERECHO Y CIENCIAS POLÍTICAS -->
-    <article class="faculty-directory-card" data-faculty="derecho" style="border-top: 5px solid #EF7D00;">
-      <div class="faculty-dir-header">
-        <div>
-          <span class="faculty-dir-badge" style="background: #FFF3EB; color: #EF7D00;">Facultad Oficial USB Cali</span>
-          <h2>Facultad de Derecho y Ciencias Políticas</h2>
-          <p>Excelencia jurídica, litigio oral, resolución alternativa de conflictos, gestión pública y relaciones internacionales.</p>
-        </div>
-        <a href="facultad.html?id=derecho" class="btn-primary" style="background-color: #EF7D00;">Ver Facultad Completa →</a>
-      </div>
-      <div class="faculty-dir-columns">
-        <div class="faculty-level-group" data-group-level="pregrado">
-          <h4>Pregrado (2)</h4>
-          <ul class="faculty-program-list">
-            <li data-search="derecho pregrado">
-              <div>
-                <strong>Derecho</strong>
-                <span>SNIES: 1108 · 10 Semestres · Presencial / Diurna y Nocturna</span>
-              </div>
-              <a href="facultad.html?id=derecho&prog=derecho" class="prog-mini-link" style="color: #EF7D00;">Ver Programa →</a>
-            </li>
-            <li data-search="gobierno y relaciones internacionales pregrado">
-              <div>
-                <strong>Gobierno y Relaciones Internacionales</strong>
-                <span>SNIES: 104980 · 8 Semestres · Presencial / Diurna</span>
-              </div>
-              <a href="facultad.html?id=derecho&prog=gobierno" class="prog-mini-link" style="color: #EF7D00;">Ver Programa →</a>
-            </li>
-          </ul>
-        </div>
-        <div class="faculty-level-group" data-group-level="posgrado">
-          <h4>Posgrado (2)</h4>
-          <ul class="faculty-program-list">
-            <li data-search="maestria en derecho publico y administrativo posgrado">
-              <div>
-                <strong>Maestría en Derecho Público y Administrativo</strong>
-                <span>SNIES: 104515 · Maestría · 4 Semestres</span>
-              </div>
-              <a href="facultad.html?id=derecho&prog=maestria-derecho" class="prog-mini-link" style="color: #EF7D00;">Ver Programa →</a>
-            </li>
-            <li data-search="especializacion en derecho penal y procesal posgrado">
-              <div>
-                <strong>Especialización en Derecho Penal y Procesal</strong>
-                <span>SNIES: 91240 · Especialización · 2 Semestres</span>
-              </div>
-              <a href="facultad.html?id=derecho&prog=esp-penal" class="prog-mini-link" style="color: #EF7D00;">Ver Programa →</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </article>
-
-    <!-- 5. INGENIERÍA -->
-    <article class="faculty-directory-card" data-faculty="ingenieria" style="border-top: 5px solid #7A1C79;">
-      <div class="faculty-dir-header">
-        <div>
-          <span class="faculty-dir-badge" style="background: #F3E8FF; color: #7A1C79;">Facultad Oficial USB Cali · Acreditación ABET</span>
-          <h2>Facultad de Ingeniería</h2>
-          <p>Innovación tecnológica, desarrollo de software, medios interactivos, automatización electrónica y optimización industrial.</p>
-        </div>
-        <a href="facultad.html?id=ingenieria" class="btn-primary" style="background-color: #7A1C79;">Ver Facultad Completa →</a>
-      </div>
-      <div class="faculty-dir-columns">
-        <div class="faculty-level-group" data-group-level="pregrado">
-          <h4>Pregrado (4)</h4>
-          <ul class="faculty-program-list">
-            <li data-search="ingenieria multimedia pregrado abet">
-              <div>
-                <strong>Ingeniería Multimedia</strong>
-                <span>SNIES: 53096 · 9 Semestres · Acreditación Internacional ABET</span>
-              </div>
-              <a href="facultad.html?id=ingenieria&prog=multimedia" class="prog-mini-link" style="color: #7A1C79;">Ver Programa →</a>
-            </li>
-            <li data-search="ingenieria de sistemas pregrado">
-              <div>
-                <strong>Ingeniería de Sistemas</strong>
-                <span>SNIES: 1112 · 9 Semestres · Presencial / Diurna</span>
-              </div>
-              <a href="facultad.html?id=ingenieria&prog=sistemas" class="prog-mini-link" style="color: #7A1C79;">Ver Programa →</a>
-            </li>
-            <li data-search="ingenieria electronica pregrado">
-              <div>
-                <strong>Ingeniería Electrónica</strong>
-                <span>SNIES: 1111 · 9 Semestres · Presencial / Diurna</span>
-              </div>
-              <a href="facultad.html?id=ingenieria&prog=electronica" class="prog-mini-link" style="color: #7A1C79;">Ver Programa →</a>
-            </li>
-            <li data-search="ingenieria industrial pregrado">
-              <div>
-                <strong>Ingeniería Industrial</strong>
-                <span>SNIES: 1113 · 9 Semestres · Presencial / Diurna y Nocturna</span>
-              </div>
-              <a href="facultad.html?id=ingenieria&prog=industrial" class="prog-mini-link" style="color: #7A1C79;">Ver Programa →</a>
-            </li>
-          </ul>
-        </div>
-        <div class="faculty-level-group" data-group-level="posgrado">
-          <h4>Posgrado (2)</h4>
-          <ul class="faculty-program-list">
-            <li data-search="maestria en ingenieria de software e ia posgrado">
-              <div>
-                <strong>Maestría en Ingeniería de Software e IA</strong>
-                <span>SNIES: 108310 · Maestría · 4 Semestres</span>
-              </div>
-              <a href="facultad.html?id=ingenieria&prog=maestria-software" class="prog-mini-link" style="color: #7A1C79;">Ver Programa →</a>
-            </li>
-            <li data-search="especializacion en gerencia de proyectos tic posgrado">
-              <div>
-                <strong>Especialización en Gerencia de Proyectos TIC</strong>
-                <span>SNIES: 102715 · Especialización · 2 Semestres</span>
-              </div>
-              <a href="facultad.html?id=ingenieria&prog=esp-tic" class="prog-mini-link" style="color: #7A1C79;">Ver Programa →</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </article>
-
+    <div id="facultades-grid" style="display: flex; flex-direction: column; gap: 28px;"></div>
   </main>
 
-  <!-- PACHITO WIDGET -->
   <div class="pachito-widget" title="Chatear con Pachito">
     <div class="pachito-bubble">¡Hola! ¿Necesitas ayuda? Haz clic aquí</div>
     <div class="pachito-avatar-box"></div>
   </div>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-container">
-      <div class="footer-col">
-        <h4>USB Cali</h4>
-        <p>Cra. 122 #6-65, Barrio Pance, Cali, Valle del Cauca.</p>
-        <p>Acreditación Institucional de Alta Calidad.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Portales y Servicios</h4>
-        <a href="https://campus.usbco.edu.co/psp/USCS90PR/?cmd=login&languageCd=ESP&">Portal ASIS</a>
-        <a href="https://aulasvirtuales.usbcali.edu.co/">Campus Virtual</a>
-        <a href="https://usbcali.edu.co/biblioteca/">Biblioteca Digital</a>
-      </div>
-      <div class="footer-col">
-        <h4>Admisiones</h4>
-        <a href="admisiones.html">Simulador de Becas ICFES</a>
-        <a href="admisiones.html">Inscripciones Abiertas</a>
-        <a href="vida-universitaria.html">Visitas Guiadas</a>
-      </div>
-      <div class="footer-col">
-        <h4>Contacto</h4>
-        <p>PBX: +57 (602) 488 2222</p>
-        <p>Línea Gratuita Nacional: 01 8000 124 350</p>
-      </div>
-    </div>
-    <div class="copyright">© 2026 Universidad de San Buenaventura Cali. Todos los derechos reservados.</div>
-  </footer>
+  <footer></footer>
 
+  <script src="assets/js/faculties-data.js"></script>
   <script src="assets/js/main.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const searchInput = document.getElementById('faculty-search-input');
-      const pills = document.querySelectorAll('.level-pill');
-      const cards = document.querySelectorAll('.faculty-directory-card');
+    document.addEventListener("DOMContentLoaded", () => {
+      const grid = document.getElementById("facultades-grid");
+      const input = document.getElementById("facultades-filter-input");
+      const pills = document.querySelectorAll("#facultades-level-filter .level-pill");
+      if (!grid || typeof facultiesCatalog === "undefined") return;
 
-      // Capturar ?q= si viene desde el buscador del home
-      const params = new URLSearchParams(window.location.search);
-      if (params.get('q') && searchInput) {
-        searchInput.value = params.get('q');
+      let currentLevel = "Todos";
+      let currentQuery = "";
+
+      function getProgramUrl(facId, prog) {
+        if (prog.url) return prog.url;
+        if (prog.curriculum || prog.metrics || prog.features) {
+          return `programa.html?facultad=${encodeURIComponent(facId)}&programa=${encodeURIComponent(prog.id)}`;
+        }
+        return `facultad.html?id=${encodeURIComponent(facId)}`;
       }
 
-      let activeLevel = 'all';
+      function renderFacultades() {
+        const q = currentQuery.trim().toLowerCase();
 
-      function filterDirectory() {
-        const query = (searchInput ? searchInput.value : '').toLowerCase().trim();
+        const html = facultiesCatalog
+          .map((fac) => {
+            const pre = (fac.pregrado || []).map((p) => ({ ...p, _nivel: "Pregrado" }));
+            const pos = (fac.posgrado || []).map((p) => ({ ...p, _nivel: "Posgrado" }));
 
-        cards.forEach(card => {
-          const groups = card.querySelectorAll('.faculty-level-group');
-          let visibleProgramsInCard = 0;
+            let list = currentLevel === "Todos" ? [...pre, ...pos] : currentLevel === "pregrado" ? pre : pos;
 
-          groups.forEach(group => {
-            const level = group.getAttribute('data-group-level');
-            const levelMatches = activeLevel === 'all' || activeLevel === level;
+            if (q) {
+              const facMatch =
+                fac.name.toLowerCase().includes(q) ||
+                fac.shortName.toLowerCase().includes(q) ||
+                fac.description.toLowerCase().includes(q) ||
+                (fac.dean && fac.dean.name.toLowerCase().includes(q)) ||
+                (fac.spaces || []).some((s) => s.toLowerCase().includes(q));
 
-            if (!levelMatches) {
-              group.style.display = 'none';
-              return;
+              list = facMatch
+                ? list
+                : list.filter(
+                    (p) =>
+                      p.name.toLowerCase().includes(q) ||
+                      (p.summary && p.summary.toLowerCase().includes(q)) ||
+                      (p.accreditation && p.accreditation.toLowerCase().includes(q))
+                  );
+              if (!facMatch && list.length === 0) return "";
             }
 
-            group.style.display = 'block';
-            const items = group.querySelectorAll('li');
-            let visibleItems = 0;
+            if (list.length === 0 && currentLevel !== "Todos") return "";
 
-            items.forEach(li => {
-              const text = (li.textContent + ' ' + card.querySelector('h2').textContent).toLowerCase();
-              if (!query || text.includes(query)) {
-                li.style.display = 'flex';
-                visibleItems++;
-                visibleProgramsInCard++;
-              } else {
-                li.style.display = 'none';
-              }
-            });
+            const deanHtml = fac.dean
+              ? `
+              <div style="display:flex; align-items:center; gap:14px; background:#FAFAFA; border:1px solid #E2E8F0; border-radius:12px; padding:12px 16px; margin-bottom:20px;">
+                <img src="${fac.dean.photo}" alt="${fac.dean.role}: ${fac.dean.name}" style="width:60px; height:60px; object-fit:cover; border-radius:50%; border:2px solid ${fac.color}; flex-shrink:0;">
+                <div>
+                  <span style="display:block; font-size:0.75rem; font-weight:800; text-transform:uppercase; color:${fac.color};">${fac.dean.role}</span>
+                  <strong style="display:block; font-size:0.98rem; color:#1D1D1B;">${fac.dean.name}</strong>
+                  <a href="mailto:${fac.dean.email}" style="font-size:0.84rem; color:#475569; text-decoration:none;">${fac.dean.email}</a>
+                </div>
+              </div>
+            `
+              : "";
 
-            group.style.display = visibleItems > 0 ? 'block' : 'none';
-          });
+            const spacesHtml =
+              fac.spaces && fac.spaces.length > 0
+                ? `
+              <div style="margin-bottom:20px;">
+                <span style="display:block; font-size:0.78rem; font-weight:800; text-transform:uppercase; color:#475569; margin-bottom:8px;">Espacios de aprendizaje y servicios</span>
+                <div style="display:flex; flex-wrap:wrap; gap:8px;">
+                  ${fac.spaces
+                    .map(
+                      (sp) =>
+                        `<span style="background:#F1F5F9; color:#1D1D1B; font-size:0.8rem; font-weight:600; padding:5px 12px; border-radius:999px;">${sp}</span>`
+                    )
+                    .join("")}
+                </div>
+              </div>
+            `
+                : "";
 
-          card.style.display = visibleProgramsInCard > 0 ? 'block' : 'none';
+            const cardsHtml = list
+              .map(
+                (prog) => `
+              <a href="${getProgramUrl(fac.id, prog)}" style="display:block; background:#FAFAFA; border:1px solid #E2E8F0; border-radius:12px; padding:18px; text-decoration:none; color:inherit;">
+                <div style="display:flex; justify-content:space-between; align-items:center; gap:8px; margin-bottom:8px;">
+                  <span style="font-size:0.75rem; font-weight:800; text-transform:uppercase; color:${fac.color};">${prog._nivel}</span>
+                  <span style="font-size:0.75rem; font-weight:700; color:#475569;">${prog.duration || ""}</span>
+                </div>
+                <h4 style="font-size:1.05rem; font-weight:800; color:#1D1D1B; margin-bottom:6px;">${prog.name}</h4>
+                <p style="font-size:0.86rem; color:#64748B; margin-bottom:10px; line-height:1.45;">${prog.summary || ""}</p>
+                <span style="font-size:0.82rem; font-weight:800; color:${fac.color};">Ver programa →</span>
+              </a>
+            `
+              )
+              .join("");
+
+            return `
+              <article style="background:#FFFFFF; border:1px solid #E2E8F0; border-top:5px solid ${fac.color}; border-radius:16px; padding:28px; box-shadow:0 6px 20px rgba(0,0,0,0.04);">
+                <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:20px; flex-wrap:wrap; margin-bottom:18px;">
+                  <div style="max-width:760px;">
+                    <h2 style="font-size:1.5rem; font-weight:800; color:#1D1D1B; margin-bottom:6px;">${fac.name}</h2>
+                    <p style="font-size:0.95rem; color:#64748B; line-height:1.5;">${fac.description}</p>
+                  </div>
+                  <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                    <a href="facultad.html?id=${encodeURIComponent(fac.id)}" class="btn-primary" style="background:${fac.color}; text-decoration:none;">
+                      Explorar facultad →
+                    </a>
+                    ${
+                      fac.officialUrl
+                        ? `<a href="${fac.officialUrl}" target="_blank" rel="noopener noreferrer" style="padding:12px 16px; border-radius:8px; border:1px solid #CBD5E1; color:#1D1D1B; font-weight:700; font-size:0.88rem; text-decoration:none;">Sitio oficial ↗</a>`
+                        : ""
+                    }
+                  </div>
+                </div>
+                ${deanHtml}
+                ${spacesHtml}
+                <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(260px, 1fr)); gap:16px;">
+                  ${cardsHtml || `<p style="color:#64748B; font-size:0.9rem;">No hay programas en este filtro.</p>`}
+                </div>
+              </article>
+            `;
+          })
+          .filter(Boolean)
+          .join("");
+
+        grid.innerHTML =
+          html ||
+          `<div style="background:#FFFFFF; border:1px solid #E2E8F0; border-radius:12px; padding:24px; text-align:center; color:#64748B;">
+            No se encontraron facultades o programas para "<strong>${currentQuery}</strong>".
+          </div>`;
+      }
+
+      if (input) {
+        input.addEventListener("input", (e) => {
+          currentQuery = e.target.value;
+          renderFacultades();
         });
       }
 
-      pills.forEach(pill => {
-        pill.addEventListener('click', () => {
-          pills.forEach(p => p.classList.remove('active'));
-          pill.classList.add('active');
-          activeLevel = pill.getAttribute('data-level');
-          filterDirectory();
+      pills.forEach((pill) => {
+        pill.addEventListener("click", () => {
+          currentLevel = pill.getAttribute("data-level");
+          pills.forEach((p) => p.classList.toggle("active", p === pill));
+          renderFacultades();
         });
       });
 
-      if (searchInput) {
-        searchInput.addEventListener('input', filterDirectory);
+      const urlParams = new URLSearchParams(window.location.search);
+      const initialQuery =
+        urlParams.get("q") ||
+        urlParams.get("buscar") ||
+        urlParams.get("search") ||
+        urlParams.get("programa") ||
+        "";
+
+      if (initialQuery) {
+        currentQuery = initialQuery;
+        if (input) {
+          input.value = initialQuery;
+        }
       }
 
-      filterDirectory();
+      renderFacultades();
     });
   </script>
 </body>
