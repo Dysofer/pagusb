@@ -5,11 +5,13 @@
 3. Sticky acompañamiento en Admisiones (Heurística 4 y 7)
 4. Footer institucional unificado en todas las vistas (Heurística 4)
 5. Asistente Virtual Pachito con escalamiento a asesor humano (Heurística 10)
+6. Iconografía coherente con el mundo real en barra superior, menú y footer (Heurística 2)
    ========================================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
   highlightActiveNav();
   ensureGlobalHeaderSearch();
+  ensureTopAndNavIcons();
   ensureStickyAdmissionsCard();
   ensureOfficialFooter();
   initGlobalSearchPanel();
@@ -20,6 +22,86 @@ function isIndexPage() {
   const path = window.location.pathname.toLowerCase();
   const page = path.split("/").pop() || "index.html";
   return page === "" || page === "index.html";
+}
+
+function getWorldRealIcons() {
+  return {
+    home:
+      '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5L12 3l9 7.5"></path><path d="M5 9.5V20h14V9.5"></path></svg>',
+    search:
+      '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>',
+    laptop:
+      '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"></rect><line x1="2" y1="20" x2="22" y2="20"></line></svg>',
+    userBox:
+      '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"></rect><circle cx="12" cy="10" r="2.5"></circle><path d="M7.5 17c.8-2 2.5-3 4.5-3s3.7 1 4.5 3"></path></svg>',
+    book:
+      '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>',
+    mail:
+      '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><polyline points="3 7 12 13 21 7"></polyline></svg>',
+    directory:
+      '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"></rect><circle cx="12" cy="10" r="2.2"></circle><path d="M8.5 16.5c.7-1.6 2-2.5 3.5-2.5s2.8.9 3.5 2.5"></path></svg>',
+    sitemap:
+      '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="5" rx="1"></rect><rect x="3" y="16" width="6" height="5" rx="1"></rect><rect x="15" y="16" width="6" height="5" rx="1"></rect><path d="M12 8v4M6 16v-4h12v4"></path></svg>',
+    map:
+      '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>',
+    whatsapp:
+      '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path><path d="M9.5 9.5c.3 1.5 1.8 3.2 3.5 3.8l1.2-.9c.3-.2.7-.2 1 0l1.3.9c.3.2.4.7.2 1-.5.9-1.5 1.4-2.5 1.3-2.9-.3-5.7-3.1-6-6-.1-1 .4-2 1.3-2.5.3-.2.8-.1 1 .2l.9 1.3c.2.3.2.7 0 1l-.9 1.2z"></path></svg>',
+    phone:
+      '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>',
+    chat:
+      '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>',
+    supportHeadset:
+      '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path></svg>',
+    graduationCap:
+      '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10L12 5 2 10l10 5 10-5z"></path><path d="M6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5"></path></svg>',
+    wallet:
+      '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="13" rx="2"></rect><path d="M16 12.5h6"></path><path d="M16 10.5v4"></path><path d="M5 6V4.5A1.5 1.5 0 0 1 6.5 3H17"></path></svg>',
+    trendUp:
+      '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>',
+    spark:
+      '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 4.6L18.5 9.5l-4.6 1.9L12 16l-1.9-4.6L5.5 9.5l4.6-1.9L12 3z"></path></svg>',
+    checkCircle:
+      '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><polyline points="8.5 12.5 11 15 15.5 9.5"></polyline></svg>'
+  };
+}
+
+/* --------------------------------------------------------------------------
+0. ICONOGRAFÍA EN BARRA SUPERIOR Y MENÚ PRINCIPAL (ESTILO SITIO OFICIAL)
+   -------------------------------------------------------------------------- */
+function ensureTopAndNavIcons() {
+  const icons = getWorldRealIcons();
+
+  function attachPrefixIcon(el, iconSvg) {
+    if (!el || el.querySelector(".top-nav-icon")) return;
+    const span = document.createElement("span");
+    span.className = "top-nav-icon";
+    span.style.cssText = "display:inline-flex;align-items:center;margin-right:6px;vertical-align:-2px;flex-shrink:0;";
+    span.innerHTML = iconSvg;
+    el.insertBefore(span, el.firstChild);
+  }
+
+  document.querySelectorAll(".top-bar a, .top-bar button").forEach((el) => {
+    const txt = (el.textContent || "").toLowerCase();
+    if (txt.includes("asis")) attachPrefixIcon(el, icons.userBox);
+    else if (txt.includes("campus virtual") || txt.includes("aulas")) attachPrefixIcon(el, icons.laptop);
+    else if (txt.includes("correo")) attachPrefixIcon(el, icons.mail);
+    else if (txt.includes("biblioteca")) attachPrefixIcon(el, icons.book);
+    else if (txt.includes("intranet")) attachPrefixIcon(el, icons.sitemap);
+    else if (txt.includes("pagos")) attachPrefixIcon(el, icons.wallet);
+    else if (txt.includes("aspirantes") || txt.includes("estudiantes") || txt.includes("egresados")) {
+      attachPrefixIcon(el, icons.graduationCap);
+    }
+  });
+
+  document.querySelectorAll("header nav > ul > li > a, header nav > ul > li > button").forEach((el) => {
+    const txt = (el.textContent || "").toLowerCase();
+    if (txt.includes("inicio")) attachPrefixIcon(el, icons.home);
+    else if (txt.includes("apoyo financiero") || txt.includes("becas")) attachPrefixIcon(el, icons.wallet);
+    else if (txt.includes("impacto real")) attachPrefixIcon(el, icons.trendUp);
+    else if (txt.includes("facultades")) attachPrefixIcon(el, icons.graduationCap);
+    else if (txt.includes("vida universitaria")) attachPrefixIcon(el, icons.spark);
+    else if (txt.includes("admisiones")) attachPrefixIcon(el, icons.checkCircle);
+  });
 }
 
 /* --------------------------------------------------------------------------
@@ -64,6 +146,8 @@ function highlightActiveNav() {
 2. INYECCIÓN DE LUPA EN CABECERA (SOLO FUERA DE INDEX.HTML)
    -------------------------------------------------------------------------- */
 function ensureGlobalHeaderSearch() {
+  const icons = getWorldRealIcons();
+
   if (isIndexPage()) {
     const existingBtn = document.getElementById("toggle-global-search");
     if (existingBtn) {
@@ -89,12 +173,7 @@ function ensureGlobalHeaderSearch() {
   searchBtn.className = "header-search-trigger";
   searchBtn.setAttribute("aria-label", "Buscar en el portal");
   searchBtn.title = "Buscador rápido";
-  searchBtn.innerHTML = `
-    <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="11" cy="11" r="8"></circle>
-      <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-    </svg>
-  `;
+  searchBtn.innerHTML = icons.search;
 
   actionsDiv.appendChild(searchBtn);
   if (ctaBtn) {
@@ -144,18 +223,7 @@ function ensureOfficialFooter() {
     return;
   }
 
-  const icons = {
-    laptop: '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"></rect><line x1="2" y1="20" x2="22" y2="20"></line></svg>',
-    userBox: '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"></rect><circle cx="12" cy="10" r="2.5"></circle><path d="M7.5 17c.8-2 2.5-3 4.5-3s3.7 1 4.5 3"></path></svg>',
-    book: '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>',
-    mail: '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><polyline points="3 7 12 13 21 7"></polyline></svg>',
-    directory: '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"></rect><circle cx="12" cy="10" r="2.2"></circle><path d="M8.5 16.5c.7-1.6 2-2.5 3.5-2.5s2.8.9 3.5 2.5"></path></svg>',
-    sitemap: '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="5" rx="1"></rect><rect x="3" y="16" width="6" height="5" rx="1"></rect><rect x="15" y="16" width="6" height="5" rx="1"></rect><path d="M12 8v4M6 16v-4h12v4"></path></svg>',
-    map: '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon><line x1="8" y1="2" x2="8" y2="18"></line><line x1="16" y1="6" x2="16" y2="22"></line></svg>',
-    whatsapp: '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path><path d="M9.5 9.5c.3 1.5 1.8 3.2 3.5 3.8l1.2-.9c.3-.2.7-.2 1 0l1.3.9c.3.2.4.7.2 1-.5.9-1.5 1.4-2.5 1.3-2.9-.3-5.7-3.1-6-6-.1-1 .4-2 1.3-2.5.3-.2.8-.1 1 .2l.9 1.3c.2.3.2.7 0 1l-.9 1.2z"></path></svg>',
-    phone: '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>',
-    chat: '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>'
-  };
+  const icons = getWorldRealIcons();
 
   footer.innerHTML = `
     <div class="footer-top-row">
@@ -165,7 +233,7 @@ function ensureOfficialFooter() {
       <div class="footer-socials">
         <a href="https://www.facebook.com/usbcali" target="_blank" rel="noopener" class="footer-social-btn" style="background:#1877F2;" aria-label="Facebook">f</a>
         <a href="https://www.instagram.com/usbcali/" target="_blank" rel="noopener" class="footer-social-btn" style="background:#E4405F;" aria-label="Instagram">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
         </a>
         <a href="https://x.com/usbcali" target="_blank" rel="noopener" class="footer-social-btn" style="background:#000000; border:1px solid #333;" aria-label="X">𝕏</a>
         <a href="https://www.youtube.com/user/usbcali" target="_blank" rel="noopener" class="footer-social-btn" style="background:#FF0000;" aria-label="YouTube">▶</a>
@@ -193,11 +261,11 @@ function ensureOfficialFooter() {
 
       <div class="footer-col">
         <h4>Facultades</h4>
-        <a href="facultad.html?id=arquitectura">Arquitectura, Arte y Diseño</a>
-        <a href="facultad.html?id=economicas">Ciencias Económicas</a>
-        <a href="facultad.html?id=derecho">Derecho y Ciencias Políticas</a>
-        <a href="facultad.html?id=humanas">Ciencias Humanas y Sociales</a>
-        <a href="facultad.html?id=ingenieria">Ingeniería</a>
+        <a href="facultad.html?id=arquitectura"><span class="footer-icon">${icons.graduationCap}</span> Arquitectura, Arte y Diseño</a>
+        <a href="facultad.html?id=economicas"><span class="footer-icon">${icons.graduationCap}</span> Ciencias Económicas</a>
+        <a href="facultad.html?id=derecho"><span class="footer-icon">${icons.graduationCap}</span> Derecho y Ciencias Políticas</a>
+        <a href="facultad.html?id=humanas"><span class="footer-icon">${icons.graduationCap}</span> Ciencias Humanas y Sociales</a>
+        <a href="facultad.html?id=ingenieria"><span class="footer-icon">${icons.graduationCap}</span> Ingeniería</a>
       </div>
 
       <div class="footer-col">
@@ -220,10 +288,10 @@ function ensureOfficialFooter() {
 
       <div class="footer-col">
         <h4>Sedes San Buenaventura</h4>
-        <a href="https://www.usb.edu.co/" target="_blank" rel="noopener">Rectoría General</a>
-        <a href="https://www.usbbog.edu.co/" target="_blank" rel="noopener">Bogotá</a>
-        <a href="https://www.usbmed.edu.co/" target="_blank" rel="noopener">Medellín</a>
-        <a href="https://www.usbcartagena.edu.co/" target="_blank" rel="noopener">Cartagena</a>
+        <a href="https://www.usb.edu.co/" target="_blank" rel="noopener"><span class="footer-icon">${icons.map}</span> Rectoría General</a>
+        <a href="https://www.usbbog.edu.co/" target="_blank" rel="noopener"><span class="footer-icon">${icons.map}</span> Bogotá</a>
+        <a href="https://www.usbmed.edu.co/" target="_blank" rel="noopener"><span class="footer-icon">${icons.map}</span> Medellín</a>
+        <a href="https://www.usbcartagena.edu.co/" target="_blank" rel="noopener"><span class="footer-icon">${icons.map}</span> Cartagena</a>
       </div>
     </div>
 
@@ -249,6 +317,8 @@ function initGlobalSearchPanel() {
   const header = document.querySelector("header");
   const toggleBtn = document.getElementById("toggle-global-search");
   if (!header || !toggleBtn) return;
+
+  const icons = getWorldRealIcons();
 
   const catalog = [
     { area: "Indicadores OLE", title: "Impacto Real, Empleabilidad y Salarios OLE", url: "impacto-real.html" },
@@ -292,10 +362,7 @@ function initGlobalSearchPanel() {
       <div class="global-search-panel" id="global-search-panel" aria-hidden="true">
         <div class="global-search-inner">
           <div class="global-search-bar">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#EF7D00" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <circle cx="11" cy="11" r="8"></circle>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-            </svg>
+            ${icons.search}
             <input type="text" id="global-search-input" placeholder="Buscar carrera, posgrado, empleabilidad OLE o beca...">
             <button type="button" class="global-search-close" id="close-global-search" aria-label="Cerrar buscador">✕</button>
           </div>
@@ -374,6 +441,7 @@ function initPachitoChatbot() {
   const widget = document.querySelector(".pachito-widget");
   if (!widget) return;
 
+  const icons = getWorldRealIcons();
   widget.removeAttribute("onclick");
 
   if (!document.getElementById("pachito-chat-window")) {
@@ -404,7 +472,7 @@ function initPachitoChatbot() {
 
         <div class="pachito-escalate-bar" id="pachito-escalate-bar">
           <button type="button" class="btn-unresolved" id="btn-unresolved">
-            No se resolvió el problema — Hablar con un encargado
+            <span style="display:inline-flex;align-items:center;gap:6px;">${icons.supportHeadset} No se resolvió el problema — Hablar con un encargado</span>
           </button>
         </div>
 
@@ -618,7 +686,7 @@ function initPachitoChatbot() {
 
     escalateBar.innerHTML = `
       <button type="button" class="btn-unresolved" id="btn-unresolved">
-        No se resolvió el problema — Hablar con un encargado
+        <span style="display:inline-flex;align-items:center;gap:6px;">${icons.supportHeadset} No se resolvió el problema — Hablar con un encargado</span>
       </button>
     `;
 
